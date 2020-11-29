@@ -1,0 +1,20 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+
+- file: intro
+
+- part: Faire un livre avec Jupyter
+  chapters:
+  - file: Part1/NoteBookTuto
+  - file: Part1/JupyterTuto
+  - file: Part1/BookTuto
+- part: Tracer des courbes via Plotly et Cufflinks
+  chapters:
+  - file: Part2/Explications
+  - file: Part2/Exemple
+- part: Pour le copier-coller
+  chapters:
+  - file: Part3/Exemple
+  - file: Part3/Test
+

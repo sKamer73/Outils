@@ -1,0 +1,39 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Un livre pour faire des livres
+author: Simon Kamerling
+logo: images/four.jpg
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: 'off'
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: ABookToDoBooks.tex
+
+# Enlever les lignes ci-desous pour avoir un outil qui ne va pas
+
+# Information about where the book exists on the web. 
+repository:
+  url: https://github.com/sKamer73/Outils # Online location of your book
+  #path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+  
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  
+launch_buttons:
+  binderhub_url: "https://mybinder.org/v2/gh/sKamer73/Outils/HEAD"  # The URL f
+  
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js

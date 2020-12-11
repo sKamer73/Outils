@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Résultats et Discussions
+# # Explications
 
 # 
 # ## 1. Utilisation d'un notebook pour plotter via pandas, plotly et cufflinks
 # 
 # Prérequis: Anaconda 3
+# 
 # Entrer dans la console (Anaconda Prompt Shell) les instructions suivantes: conda install ** avec ** les packages suivants:
 # 
 # * cufflinks
@@ -21,6 +22,11 @@
 # Il est bien sur possible d'utiliser de manière plus classique matplotlib, ou tout autre package.
 # 
 # ## 2. Utilisation de Jupyter Lab 
+# 
+# 
+# 1. La poire
+# 2. La pomme
+# 
 # 
 # Les différences JupyterLab/Notebook: le notebook est plus simple d'utilisation au début, mais a une interface moins pratique une fois qu'on a compris comment marche les notebooks. Entre autre, pour l'édition de livres, il est facile de changer les tags des cellules afin de choisir si elle s'affiche dans le rendu final (.html, .pdf).
 # 
@@ -38,6 +44,8 @@
 # jupyter nbconvert Plotting.ipynb --to=html --TagRemovePreprocessor.remove_input_tags="{'remove_input','remove_cell'}" --TagRemovePreprocessor.remove_single_output_tags="{'remove_cell'}"
 # 
 # Ceci marche si nbconvert est bien configuré. Leur website aide bien (connexion de latex, etc.). Résoudre cela permet d'exporter au format latex puis pdf des notebooks par la commande ci-dessus, en ayant tagué les cellules dans JupyterLab.
+
+# Le jfidkp^qfos
 
 # $X_i=10$
 

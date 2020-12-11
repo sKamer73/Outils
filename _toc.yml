@@ -3,18 +3,27 @@
 #
 
 - file: intro
-
+  numbered: false
 - part: Faire un livre avec Jupyter
+  numbered: false
   chapters:
   - file: Part1/NoteBookTuto
   - file: Part1/BookTuto
 - part: Tracer des courbes via Plotly et Cufflinks
+  numbered: false
   chapters:
   - file: Part2/Explications
-  - file: Part2/ExempleYear
   - file: Part2/ExempleDay
-- part: Pour le copier-coller
+- part: Introduction à l'Energie solaire
+  numbered: false
   chapters:
-  - file: Part3/Exemple
-  - file: Part3/Test
-
+  - file: Part3/EmplacementSoleil
+  - file: Part3/Irradiation
+  - file: Part3/LowT
+  - file: Part3/MediumT
+  - file: Part3/HighT
+- part: Calculs
+  numbered: false
+  chapters:
+  - file: Part4/BilanT4
+  - file: Part4/FlatPlate

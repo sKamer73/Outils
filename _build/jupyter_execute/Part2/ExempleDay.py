@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Analysis of Hourly Values
+# # Exemples de plot possible avec cufflinks et pandas
 
-# In[8]:
+# La méthode iplot() que Cufflinks amène au dataframe de Pandas (un wrapper autour de pandas?) permet de tracer facilement différentes courbes. Ci-dessous différents exemples.
+
+# In[1]:
 
 
-import plotClassAndFunc as hm
+import plotFuncAndClass as hm
 import pandas as pd
 from ipywidgets import interact, interactive, fixed, interact_manual, IntSlider
 # Standard plotly imports
@@ -19,7 +21,7 @@ cf.go_offline(connected=False)
 init_notebook_mode(connected=False)
 
 
-# In[10]:
+# In[8]:
 
 
 listLat=['\Delta t','DNI', 'T_{amb}', '\dot{m}_{Demand}', 'T_{demand}', '\dot{m}_{SF}', 'T_{SF}', '\dot{m}_{aux}',
@@ -38,83 +40,87 @@ nameColumns=list(df.columns)
 tabVar=[hm.nameAndUnit(nameColumns[i],nameColumns[i],varDescription[i],'',listLat[i]) for i in range(0,len(nameColumns))]
 
 
-# ## Daily plotting
+# ## Plot of Daily average values
 
-# In[13]:
+# In[22]:
 
 
-def plot1VarDay(NHour, ControlModel, dayStart, var1):
-    titleFunc= var1.varDescription + ' in ' + var1.unitVar + ' starting on ' + hm.fromNumDayToDate(dayStart)
+dfDaily = pd.read_csv('data/CoSimDaily.csv') #read a specific csv file
+dfMILPDaily= pd.read_csv('data/MILPDaily.csv') #read another specific csv file with same fields
+dfSM1Daily= pd.read_csv('data/SM1Daily.csv') #read another specific csv file with same fields
+dfSM2Daily= pd.read_csv('data/SM2Daily.csv') #read another specific csv file with same fields
+tabDaily=[dfDaily, dfSM1Daily, dfSM2Daily, dfMILPDaily]
+nameColumnsDay=list(dfDaily.columns)
+tabVarDay=[hm.nameAndUnit(nameColumnsDay[i],nameColumnsDay[i],varDescription[i],'',listLat[i]) for i in range(0,len(nameColumnsDay))]
+
+
+# In[20]:
+
+
+def plot1VarYear(ControlModel, var1):
+    titleFunc= var1.varDescription + ' in ' + var1.unitVar
     if(ControlModel<4):
-        toPlot=tabDataFrames[ControlModel][dayStart*24:dayStart*24+NHour]
-        toPlot['hourMod']=(toPlot['hour(h)']-dayStart*24)%NHour
-        toPlot=toPlot.set_index('hourMod')
-        toPlot.iplot(kind='scatter',y=var1.keyDF , title=titleFunc, xTitle='hour (h)', 
+        toPlot=tabDaily[ControlModel]
+        toPlot['date']=toPlot['day(d)'].map(hm.fromNumDayToDate)
+        toPlot=toPlot.set_index('date')
+        toPlot.iplot(mode='markers',y=var1.keyDF , title=titleFunc, xTitle='day (d)', symbol='square', size=4,
                      yTitle='$'+var1.lat+'('+var1.unitVar+')$',showlegend=True)
     else:
-        toPlot=pd.concat([tabDataFrames[i].add_suffix('_'+tabNameDataFrame[i]) for i in range(0,3)], axis=1)[dayStart*24:dayStart*24+NHour]
-        toPlot['hourMod']=(toPlot['hour(h)_CoSim']-dayStart*24)%NHour
-        toPlot=toPlot.set_index('hourMod')
-        toPlot[[var1.keyDF+'_'+tabNameDataFrame[i] for i in range(0,3)]].iplot(kind='scatter',
-                                    title=titleFunc, xTitle='hour (h)', yTitle='$'+var1.lat+'('+var1.unitVar+')$',showlegend=True)
+        toPlot=pd.concat([tabDaily[i].add_suffix('_'+tabNameDataFrame[i]) for i in range(0,3)], axis=1)
+        toPlot['date']=toPlot['day(d)_CoSim'].map(hm.fromNumDayToDate)
+        toPlot=toPlot.set_index('date')
+        toPlot[[var1.keyDF+'_'+tabNameDataFrame[i] for i in range(0,3)]].iplot(mode='markers', symbol='square', size=4,
+                                    title=titleFunc, xTitle='day (d)', yTitle='$'+var1.lat+'('+var1.unitVar+')$',showlegend=True)
+
+
+# In[21]:
+
+
+plot1VarYear(4,tabVarDay[6])
+
+
+# ## HeatMaps
+
+# In[5]:
+
+
+def heatMapFromVarName(var, ControlModel):
+    df=tabDataFrames[ControlModel]
+    nbDays= df[var.keyDF].size//24;
+    data=[[df[var.keyDF][day*24+hour] for hour in range(0,24)]  for day in range(0,nbDays)];
+    titleFunc = 'Heatmap of the '+var.varDescription +' in '+var.unitVar+' through the year';
+    test10=pd.DataFrame(data,index = [hm.fromNumDayToDate(k) for k in range(0,nbDays)]);
+    test10.iplot(kind='heatmap', title = titleFunc, colorscale ='spectral',                  showlegend=True, text=var.keyDF );
 
 
 # In[14]:
 
 
-interactive_plot1VarDay = interactive(plot1VarDay, NHour=fixed(96),
-                                      ControlModel=[(tabNameDataFrame[i],i) for i in range(0,5)],
-                                      dayStart=IntSlider(min=0, max=df['hour(h)'].size//24-4, step=1, value=170),
-                                      var1=[(tabVar[i].varDescription,tabVar[i]) for i in range(1,len(nameColumns))]);
-output1VarDay = interactive_plot1VarDay.children[-1]
-output1VarDay.layout.height = '450px'
-interactive_plot1VarDay
+heatMapFromVarName(tabVar[1],1)
+
+
+# ## Matrice de corrélation
+
+# In[15]:
+
+
+df.corr().iplot(kind='heatmap',colorscale="Blues", title="Correlation between variables along the year",  showlegend=True)
 
 
 # In[16]:
 
 
-plot1VarDay(interactive_plot1VarDay.kwargs['NHour'],interactive_plot1VarDay.kwargs['ControlModel'],interactive_plot1VarDay.kwargs['dayStart'],           interactive_plot1VarDay.kwargs['var1'])
-
-
-# #### Plot 2 variables on choice, 4 days range; 1 for the 3 models, the other for the coSim Models
-
-# In[17]:
-
-
-def plot2VarDay(NHour, ControlModel, dayStart, var1,var2):
-    titleFunc= var1.varDescription + ' & ' + var2.varDescription + ' starting on ' + hm.fromNumDayToDate(dayStart)
-    if(ControlModel<4):
-        toPlot=tabDataFrames[ControlModel][dayStart*24:dayStart*24+NHour]
-        toPlot['hourMod']=(toPlot['hour(h)']-dayStart*24)%NHour
-        toPlot=toPlot.set_index('hourMod')
-        toPlot.iplot(kind='scatter',y=var1.keyDF , secondary_y = var2.keyDF,                                                       title=titleFunc, xTitle='hour (h)', yTitle='$'+var1.lat+'('+var1.unitVar+')$',                secondary_y_title='$'+var2.lat+'('+var2.unitVar+')$', showlegend=True)
-    else:
-        toPlot=pd.concat([tabDataFrames[i].add_suffix('_'+tabNameDataFrame[i]) for i in range(0,3)], axis=1)[dayStart*24:dayStart*24+NHour]
-        toPlot[var2.keyDF+'_CoSim']=tabDataFrames[0][var2.keyDF][dayStart*24:dayStart*24+NHour]
-        toPlot['hourMod']=(tabDataFrames[0]['hour(h)'][dayStart*24:dayStart*24+NHour]-dayStart*24)%NHour
-        
-        testIn=toPlot[[var1.keyDF+'_'+tabNameDataFrame[i] for i in range(0,3)]]
-        testIn['hourMod']=toPlot['hourMod']
-        testIn[var2.keyDF+'_CoSim']=toPlot[var2.keyDF+'_CoSim']
-        testIn=testIn.set_index('hourMod')
-             
-        testIn.iplot(kind='scatter',                                    title=titleFunc, xTitle='hour (h)', yTitle='$'+var1.lat+'('+var1.unitVar+')$',                                    secondary_y=var2.keyDF+'_CoSim',                                    secondary_y_title='$'+var2.lat+'('+var2.unitVar+')$',showlegend=True)    
+def plotRepart(var):
+    toPlot=pd.concat([tabDaily[i][var.keyDF] for i in range(0,4)], axis=1)
+    toPlot.columns=tabNameDataFrame[0:-1]
+    toPlot.iplot(kind='box',xTitle="Control Model", yTitle = var.unitVar,
+                 title=var.varDescription + ' average repartition trough the year of daily values', showlegend=False)
 
 
 # In[18]:
 
 
-interactive_plot2VarDay = interactive(plot2VarDay, NHour=fixed(96), dayStart=IntSlider(min=0, max=df['hour(h)'].size//24-4, step=1, value=170),                                ControlModel=[(tabNameDataFrame[i],i) for i in range(0,5)],                               var1=[(tabVar[i].varDescription,tabVar[i]) for i in range(1,len(nameColumns))],                              var2=[(tabVar[i].varDescription,tabVar[i]) for i in range(1,len(nameColumns))])
-output2VarDay = interactive_plot2VarDay.children[-1]
-output2VarDay.layout.height = '450px'
-interactive_plot2VarDay
-
-
-# In[19]:
-
-
-plot2VarDay(interactive_plot2VarDay.kwargs['NHour'],interactive_plot2VarDay.kwargs['ControlModel'],interactive_plot2VarDay.kwargs['dayStart'],           interactive_plot2VarDay.kwargs['var1'],interactive_plot2VarDay.kwargs['var2'])
+plotRepart(tabVarDay[5])
 
 
 # In[ ]:

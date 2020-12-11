@@ -13,7 +13,7 @@ LATEXOPTS =
 FMT = pdf
 
 LATEX = latex
-PDFLATEX = pdflatex
+PDFLATEX = xelatex
 MAKEINDEX = makeindex
 
 

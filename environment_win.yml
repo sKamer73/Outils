@@ -18,3 +18,5 @@ dependencies:
     - jupyter-book>=0.7.0b
     - chart_studio
     - cufflinks
+    - pyppeteer
+    - kaleido

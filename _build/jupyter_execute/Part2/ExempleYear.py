@@ -3,7 +3,7 @@
 
 # # Analyse yearly Results
 
-# In[5]:
+# In[20]:
 
 
 import plotFuncAndClass as hm
@@ -19,7 +19,7 @@ cf.go_offline(connected=False)
 init_notebook_mode(connected=False)
 
 
-# In[7]:
+# In[21]:
 
 
 listLat=['\Delta t','DNI', 'T_{amb}', '\dot{m}_{Demand}', 'T_{demand}', '\dot{m}_{SF}', 'T_{SF}', '\dot{m}_{aux}',
@@ -40,7 +40,7 @@ tabVar=[hm.nameAndUnit(nameColumns[i],nameColumns[i],varDescription[i],'',listLa
 
 # ## Plot of Daily average values
 
-# In[9]:
+# In[22]:
 
 
 dfDaily = pd.read_csv('data/CoSimDaily.csv') #read a specific csv file
@@ -52,7 +52,7 @@ nameColumnsDay=list(dfDaily.columns)
 tabVarDay=[hm.nameAndUnit(nameColumnsDay[i],nameColumnsDay[i],varDescription[i],'',listLat[i]) for i in range(0,len(nameColumnsDay))]
 
 
-# In[10]:
+# In[23]:
 
 
 def plot1VarYear(ControlModel, var1):
@@ -71,7 +71,7 @@ def plot1VarYear(ControlModel, var1):
                                     title=titleFunc, xTitle='day (d)', yTitle='$'+var1.lat+'('+var1.unitVar+')$',showlegend=True)
 
 
-# In[11]:
+# In[24]:
 
 
 interactive_plot1VarYear = interactive(plot1VarYear,

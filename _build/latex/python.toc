@@ -1,0 +1,41 @@
+\selectlanguage *{english}
+\contentsline {chapter}{\numberline {1}Tutoriel Python \& Notebook}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Etape 1: Installer Anaconda}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Etape 2 : Lancer Jupyter}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Etape 3 : Jouer avec Python et Jupyter}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Etape 4: Exporter votre NoteBook au format pdf ou html}{4}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Discussion: Avis personnel sur Lab vs notebook}{4}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}JupyterLab: utilisation pratique}{4}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}0. Se déplacer facilement}{4}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}1. Ouvrir une console}{5}{subsection.1.5.2}%
+\contentsline {chapter}{\numberline {2}Faire un livre avec Jupyter Book}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Explications}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}1. Utilisation d’un notebook pour plotter via pandas, plotly et cufflinks}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}2. Utilisation de Jupyter Lab}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Exemples de plot possible avec cufflinks et pandas}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Plot of Daily average values}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}HeatMaps}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Matrice de corrélation}{13}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Décrire l’emplacement du soleil}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Azimuth et Elevation \sphinxhyphen {} Horizontale}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Azimuth \sphinxhyphen {} \(\alpha \)}{16}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Elevation \sphinxhyphen {} \(\gamma \)}{17}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Vecteur solaire}{17}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Latitude, déclinaison et angle horaire \sphinxhyphen {} Systèmes Equatoriales}{18}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Déclinaison}{18}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Angle horaire}{19}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Vecteur solaire}{20}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Passer d’un système de coordonnées à l’autre}{20}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Du vecteur solaire à l’azimuth et l’élévation}{20}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Du vecteur solaire à la déclinaison et l’angle horaire}{20}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}D’un système à l’autre}{21}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Tracés annuels}{21}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Azimuth et élévation}{21}{subsection.5.4.1}%
+\contentsline {chapter}{\numberline {6}L’irradiation solaire}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}L’absorption et le spectre solaire}{23}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Basses Températures}{25}{chapter.7}%
+\contentsline {chapter}{\numberline {8}La Concentration Ponctuelle}{27}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Température de paroi dans une tour}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Sur une formule générale}{29}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}A un instant t donné}{29}{subsection.9.1.1}%
+\contentsline {chapter}{\numberline {10}T(z) dans un panneau}{31}{chapter.10}%

@@ -1,6 +1,6 @@
 # Tutoriel pour faire un livre interactif
 
-Ce tutoriel est en version $\Beta$
+Ce tutoriel est en version Béta.
 
 Dans le cadre de mon doctorat, j'ai commencé à utiliser Python pour tracer des courbes. Je me suis donc intéressé à Jupyter, Notebook puis Lab, car l'interface d'un notebook dans le style Mathematica (ou MatLab? Jamais utilisé) m'a toujours semblé très pratique, pour les raisons suivantes:
 * exécution immédiate car pas de compilation

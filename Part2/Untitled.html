@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Essai de passage de a1, a2 pour un flat plate sur l’aire à des coeffs pour l’équa diff en dT/dz &#8212; Un livre pour faire des livres</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/four.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Un livre pour faire des livres</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Tutoriel pour faire un livre interactif
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Faire un livre avec Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1/NoteBookTuto.html">
+   1. Tutoriel Python &amp; Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1/BookTuto.html">
+   2. Faire un livre avec Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tracer des courbes via Plotly et Cufflinks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Explications.html">
+   1. Explications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ExempleDay.html">
+   2. Analysis of Hourly Values
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pour le copier-coller
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/Exemple.html">
+   1. Exemple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/Test.html">
+   2. Test
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part2/Untitled.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sKamer73/Outils"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sKamer73/Outils/issues/new?title=Issue%20on%20page%20%2FPart2/Untitled.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/sKamer73/Outils/edit/main/Part2/Untitled.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sKamer73/Outils/f4011d808a7377783eebea343c630a93dec2205f/v2/gh/sKamer73/Outils/main?urlpath=tree/Part2/Untitled.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="essai-de-passage-de-a1-a2-pour-un-flat-plate-sur-l-aire-a-des-coeffs-pour-l-equa-diff-en-dt-dz">
+<h1>Essai de passage de a1, a2 pour un flat plate sur l’aire à des coeffs pour l’équa diff en dT/dz<a class="headerlink" href="#essai-de-passage-de-a1-a2-pour-un-flat-plate-sur-l-aire-a-des-coeffs-pour-l-equa-diff-en-dt-dz" title="Permalink to this headline">¶</a></h1>
+<p>Plus précisément, on a en général la définition: <span class="math notranslate nohighlight">\(\dot{m} \times C_p \times (T_{out}-T_{in}) = \eta_0 \times A \times I - a_1 * A* (\bar{T}-T_{amb}) - a_2*A*(\bar{T}-T_{amb})^2 \)</span></p>
+<p><span class="math notranslate nohighlight">\(a_1\)</span> et <span class="math notranslate nohighlight">\(a_2\)</span> sont fournis par le constructeur de manière classique. Néanmoins, l’équation bilan sur un élément dz du panneau donne:</p>
+<p><span class="math notranslate nohighlight">\(\dot{m} \times C_p \times \frac{dT}{dz} = \eta_0 \times l \times I -\alpha_1 \times l \times (T(z)-T_{amb})-\alpha_2 \times l \times (T(z)-T_{amb})^2\)</span></p>
+<p>Etant donné que cette dernière formulation est plus pratique que la première lorsqu’il s’agit d’étudier un champ solaire constitué de plusieurs panneaux à la suite (en supposant qu’il n’y a pas de pertes dans les connections..), il serait bien de pouvoir passer de l’un à l’autre. Instinctivement, on voudrait les relier par <span class="math notranslate nohighlight">\( \alpha_1 = \frac{a_1}{L} \)</span> avec L la longueur du panneau. Comment vérifier cela?</p>
+<p>Il est possible de résoudre de manière analytique la deuxième équation, en passant par un argth. En effet, si l’on suppose que la température ne fait que grimper dans le panneau (et donc que <span class="math notranslate nohighlight">\(\frac{dT}{dz}&gt;0\)</span>), il est possible d’arriver sur l’équation différentielle suivante:
+$<span class="math notranslate nohighlight">\(
+\frac{dT^*}{1-T^{*2}} = \nu_2 \times \sqrt{\frac{A}{\nu_2}+\frac{\nu_1^2}{4 \times \nu_2^2}} \\
+avec \ T^* = \frac{T-T_{amb}+\frac{\nu_1}{2 \times \nu_2}}{\sqrt{\frac{A}{\nu_2}+\frac{\nu_1^2}{4 \times \nu_2^2}}} , \\
+ A = \frac{\eta_0 \times l \times I}{\dot{m} \times C_p}, \\
+ \nu_1 = \frac{\alpha_1}{\dot{m} \times C_p}, \\
+ \nu_2 = \frac{\alpha_2}{\dot{m} \times C_p}
+\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(\frac{dT}{dz}&gt;0\)</span> implique que <span class="math notranslate nohighlight">\(T^*&lt;1\)</span>, et donc que la solution de cette équation différentielle est bien un argth. Cela donne:
+$<span class="math notranslate nohighlight">\(
+d \ argth(T^*) = \nu_2 \times \sqrt{\frac{A}{\nu_2}+\frac{\nu_1^2}{4 \times \nu_2^2}} = M, \\
+donc: \ T^* = th(argth(T^*(0))+M*z) = \frac{T^*(0)+th (z \times M)}{1+T^*(0) \times th(z \times M)}
+\)</span>$</p>
+<p>L’objectif va donc être de trouver <span class="math notranslate nohighlight">\(\alpha_1 , \alpha_2\)</span> tels que les pertes linéaires et les pertes quadratiques s’égalisent. Cela est complexe analytiquement, car nous avons un grand nombre de fonctions non linéaires intervenant dans l’égalité. Nous allons donc tracer la fonction en faisant varier les divers paramètres et voir si la solution instinctive est juste (càd, si T est linéaire dans le panneau).</p>
+<p>Au final, pareil pour le panneau ou tout autre chose: c’est linéaire SI le mdot est assez gros, that is the question. On va donc tracer T(L) en fonction de mdot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">eta0</span><span class="o">=</span><span class="mf">0.831</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">3.08</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">Cp</span><span class="o">=</span><span class="mi">4187</span>
+<span class="n">l</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Tamb</span><span class="o">=</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Panneau</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Tin</span><span class="p">,</span> <span class="n">eta0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Tamb</span><span class="p">,</span> <span class="n">mdot</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Ap</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Tin</span><span class="o">=</span><span class="n">Tin</span>
+        <span class="n">a</span><span class="o">=</span> <span class="n">a2</span><span class="o">*</span><span class="n">Ap</span><span class="o">/</span><span class="mi">4</span>
+        <span class="n">b</span><span class="o">=</span> <span class="n">mdot</span><span class="o">*</span><span class="n">Cp</span><span class="o">+</span><span class="n">a1</span><span class="o">*</span><span class="n">Ap</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">a2</span><span class="o">*</span><span class="n">Ap</span><span class="o">*</span><span class="p">(</span><span class="n">Tin</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">eta0</span><span class="o">*</span><span class="n">Ap</span><span class="o">*</span><span class="n">I</span><span class="o">+</span><span class="n">a1</span><span class="o">*</span><span class="p">(</span><span class="n">Tamb</span><span class="o">-</span><span class="n">Tin</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Ap</span><span class="o">-</span><span class="n">a2</span><span class="o">*</span><span class="n">Ap</span><span class="o">*</span><span class="p">(</span><span class="n">Tin</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">+</span><span class="n">mdot</span><span class="o">*</span><span class="n">Cp</span><span class="o">*</span><span class="n">Tin</span>
+        <span class="n">c</span><span class="o">=-</span><span class="n">c</span>
+        <span class="n">delta</span><span class="o">=</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Tout</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Nb</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">T0</span><span class="o">=</span><span class="n">Tamb</span>
+<span class="n">I</span><span class="o">=</span><span class="mi">750</span>
+<span class="n">mdot</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="mi">12</span><span class="o">/</span><span class="mi">3600</span>
+<span class="n">tabPan</span><span class="o">=</span><span class="p">[</span><span class="n">Panneau</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span><span class="n">eta0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">Tamb</span><span class="p">,</span> <span class="n">mdot</span><span class="p">,</span> <span class="mi">4187</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pan</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Nb</span><span class="p">):</span>
+    <span class="n">tabPan</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Panneau</span><span class="p">(</span><span class="n">tabPan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Tout</span><span class="p">,</span><span class="n">eta0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">Tamb</span><span class="p">,</span> <span class="n">mdot</span><span class="p">,</span> <span class="mi">4187</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Nb</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tabPan</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">Tin</span><span class="p">,</span> <span class="s1">&#39;--&gt;&#39;</span><span class="p">,</span><span class="n">tabPan</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">Tout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 --&gt; 14.408442099727381
+14.408442099727381 --&gt; 18.719369296428567
+18.719369296428567 --&gt; 22.935603686994455
+22.935603686994455 --&gt; 27.059861394093332
+27.059861394093332 --&gt; 31.09475750905517
+31.09475750905517 --&gt; 35.04281075996687
+35.04281075996687 --&gt; 38.90644792273292
+38.90644792273292 --&gt; 42.68800799142696
+42.68800799142696 --&gt; 46.38974612312836
+46.38974612312836 --&gt; 50.01383737142646
+50.01383737142646 --&gt; 53.562380221637795
+53.562380221637795 --&gt; 57.03739993996919
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Nb</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">tabPan</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">Tout</span><span class="o">-</span><span class="n">tabPan</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">Tin</span><span class="p">)</span><span class="o">*</span><span class="n">mdot</span><span class="o">*</span><span class="n">Cp</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">I</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8203620920692686
+0.8022156521150162
+0.7845943730355277
+0.7674785342054665
+0.7508493348153432
+0.7346888427363236
+0.718979946688954
+0.7037063114498633
+0.6888523358859459
+0.6744031136277397
+0.6603443961704379
+0.6466625582512692
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta0</span> <span class="o">-</span> <span class="n">a1</span><span class="o">*</span><span class="p">(</span><span class="mi">54</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">/</span><span class="n">I</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="p">(</span><span class="mi">54</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">54</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">/</span><span class="n">I</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6244933333333332
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Simon Kamerling<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

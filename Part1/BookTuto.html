@@ -48,8 +48,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -274,6 +272,71 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivations">
+   Motivations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#organisation-des-notebooks">
+   Organisation des notebooks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dans-le-dossier">
+     Dans le dossier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation-du-book">
+   Compilation du book
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-l-environnement-wintest">
+     Installation de l’environnement wintest
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changer-l-environnement">
+       Changer l’environnement
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compilation-en-version-html">
+     Compilation en version html
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compilation-en-version-pdf">
+     Compilation en version pdf
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publier-son-livre-sur-github">
+   Publier son livre sur GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#astuces-de-presentation-specifiques-au-book">
+   Astuces de présentation spécifiques au book
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -283,20 +346,75 @@
                 
   <div class="section" id="faire-un-livre-avec-jupyter-book">
 <h1>Faire un livre avec Jupyter Book<a class="headerlink" href="#faire-un-livre-avec-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>Je compte présenter ici ma manière de faire, pas donner un cours: c’est encore brouillon dans ma tête.</p>
-<p>Leur website est très bien fait: https://jupyterbook.org/start/overview.html</p>
-<p>Le concept est de créer un livre de notebooks, en générant chaque page et en les ajoutant les uns avec les autres. Cela correspond à une architecture de dossiers/fichiers. Certaines choses peuvent se révéler compliqués lorsque l’on exporte au format pdf, particulièrement au niveau des figures. Le fichier _toc.yml référence l’architecture.</p>
-<p>Il y a beaucoup d’options intéressantes: mettre des liens pour Binder, pour Github, qui permettent un accès rapide à l’interactivité des Notebook</p>
-<p>Pour contruire le livre, sous Windows:
-ouvrir une invite de commande conda, entrer l’instruction suivante afin d’ouvrir l’environnement windows/conda adapté et décrit dans environment_win.yml</p>
-<p>conda env create -f environment_win.yml</p>
-<p>conda activate wintest</p>
-<p>Une fois l’environnement créé, il suffit de taper conda activate wintest afin de réouvrir, dans une autre console par exemple.</p>
-<p>Cela ouvre l’environnement conda et donne un nouvel aspect à la console. Il suffit alors d’entrer la commande:</p>
+<div class="section" id="motivations">
+<h2>Motivations<a class="headerlink" href="#motivations" title="Permalink to this headline">¶</a></h2>
+<p>La simplicité de ce système de <strong>Jupyter Book</strong> est particulièrement pertinente. Le Book est en fait un assemblement des Notebooks, et une façon de les organiser; chaque Notebook est une page, ou plus précisément une partie/chapitre. Organisés de la bonne manière, ils permettent la création d’un site web tel que celui que vous consultez actuellement. De plus, il est facile de faire tourner des codes en arrière plan; par conséquent, cela est très pratique pour toute présentation, dans laquelle on pourrait vous demander de faire quelques calculs légers. De même, faire un site web à partir de vos éléments de présentation devient assez simple, ce qui permet de tout simplement envoyer des liens contenant votre présentation.</p>
+<p><strong>Un tutoriel en anglais très bien fait</strong>: https://jupyterbook.org/start/overview.html
+Ce sont eux qui ont créé ce système.</p>
+</div>
+<div class="section" id="organisation-des-notebooks">
+<h2>Organisation des notebooks<a class="headerlink" href="#organisation-des-notebooks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dans-le-dossier">
+<h3>Dans le dossier<a class="headerlink" href="#dans-le-dossier" title="Permalink to this headline">¶</a></h3>
+<p><img alt="CaptureJupyterArchitecture" src="../_images/CaptureJupyterArchitecture.png" /></p>
+<p>Vous pouvez explorer le dossier Github contenant ce livre, en cliquant sur le bouton GitHub en haut à droite. L’architecture (choisie en partie par moi) est la suivante:</p>
 <ul class="simple">
-<li><p>jupyter-book build Outils/          —–&gt; pour une version html</p></li>
-<li><p>jupyter-book build Outils/ –builder pdflatex         ——-&gt; pour une version pdf</p></li>
+<li><p>les dossiers Part1, Part2, .. correspondent aux différentes parties de ce livre (tête de chapitre en gras dans le menu à gauche)</p></li>
+<li><p>les images que je souhaite afficher sont stockés dans le dossier images.</p></li>
+<li><p>le fichier _config.yml contient la configuration, dans laquelle un certain nombre sont modifiables; voir la <a class="reference external" href="https://jupyterbook.org/intro.html">documentation</a>.</p></li>
+<li><p>le fichier _toc.yml contient l’emplacement de mes notebooks, et l’ordre dans lequel il faut qu’ils apparaissent. Il est facilement modifiable en s’inspirant de celui présent. Ne pas se tromper d’un espace!</p></li>
+<li><p>le dossier build contient votre build, c’est-à-dire sa version html ou pdf. La compilation en pdf est complexe et je ne l’ai pas encore bien cerné.</p></li>
+<li><p>le README.MD vient de Github, c’est ce qui s’affiche dans la présentation du contenu</p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="compilation-du-book">
+<h2>Compilation du book<a class="headerlink" href="#compilation-du-book" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-de-l-environnement-wintest">
+<h3>Installation de l’environnement wintest<a class="headerlink" href="#installation-de-l-environnement-wintest" title="Permalink to this headline">¶</a></h3>
+<p>Il faut utiliser un environnement spécifique à jupyter book <em>à l’instant où cela est écrit</em> et ce <strong>sous Windows</strong> car il y a quelques problèmes de compatibilité so far - et si j’ai bien compris.
+Pour créer l’environnement:</p>
+<ol class="simple">
+<li><p>ouvrir une invite de commande conda comme Anaconda Powershell Prompt présent dans le dossier Anaconda, menu Démarrer</p></li>
+<li><p>se déplacer dans les dossiers jusqu’au dossier de ce livre, en utilisant les commandes Linux cd (et ls)</p></li>
+<li><p>entrer la commande suivante -&gt;  <em>conda env create -f environment_win.yml</em></p></li>
+</ol>
+<div class="section" id="changer-l-environnement">
+<h4>Changer l’environnement<a class="headerlink" href="#changer-l-environnement" title="Permalink to this headline">¶</a></h4>
+<p><img alt="Environnement" src="../_images/CaptureEnvironnement.PNG" /></p>
+<p>Changer l’environnement est utile pour utiliser d’autres packages dans le Book. Il suffit de les ajouter dans dependencies (ou dans pip si cela ne fonctionne pas).</p>
+</div>
+</div>
+<div class="section" id="compilation-en-version-html">
+<h3>Compilation en version html<a class="headerlink" href="#compilation-en-version-html" title="Permalink to this headline">¶</a></h3>
+<p>Compiler le livre revient à entrer une ligne dans l’invite de commande conda. Dans le cas de Windows, il y en a 2:</p>
+<ol class="simple">
+<li><p><em>conda activate wintest</em>  -&gt; activation de l’environnement précédent</p></li>
+<li><p>jupyter-book build Outils/  -&gt; compilation du livre. Si tout se passe bien, le livre se trouvera dans <em>_build/html</em></p></li>
+</ol>
+<p>Il suffit alors d’ouvrir une page web (.html), puis de se déplacer dans le livre comme sur ce site web.</p>
+</div>
+<div class="section" id="compilation-en-version-pdf">
+<h3>Compilation en version pdf<a class="headerlink" href="#compilation-en-version-pdf" title="Permalink to this headline">¶</a></h3>
+<p>Le compilateur fait passer du notebook à du latex, puis du latex à un pdf. Il peut donc y avoir un soucis au niveau de l’une des deux compilations, et cela est dur à trouver. Je pense qu’il y aura bientôt de l’évolution sur le sujet.
+Cela est appelé à changer bientôt je pense, il y a l’air d’avoir beaucoup d’activités sur leur GitHub.</p>
+<p>La commande pour construire le livre en pdf, <strong>une fois</strong> l’environnement ouvert, est: <em>jupyter-book build Outils/ –builder pdflatex</em></p>
+</div>
+</div>
+<div class="section" id="publier-son-livre-sur-github">
+<h2>Publier son livre sur GitHub<a class="headerlink" href="#publier-son-livre-sur-github" title="Permalink to this headline">¶</a></h2>
+<p>Il est possible de mettre en ligne son site web sur GitHub Pages, qui permet un hébergement gratuit. Pour ceux qui se posent la question, GitHub est aujourd’hui détenu par Microsoft.</p>
+<p>Il est nécessaire:</p>
+<ol class="simple">
+<li><p>De créer un dossier git (il est souvent utile de maîtriser git pour cela.. mais ce n’est pas trop mon cas – à tenter sur Qwant). Cette page https://jupyterbook.org/start/publish.html explique le nécessaire</p></li>
+<li><p>Synchronisation du dossier git via <em>git commit -m “Message Affichee”</em> puis <em>git push</em></p></li>
+<li><p>Utiliser cette commande <em>ghp-import -n -p -f _build/html</em>, qui nécessite que ghp-import soit installé (ce qui se fait via <em>pip install ghp-import</em>)</p></li>
+</ol>
+</div>
+<div class="section" id="astuces-de-presentation-specifiques-au-book">
+<h2>Astuces de présentation spécifiques au book<a class="headerlink" href="#astuces-de-presentation-specifiques-au-book" title="Permalink to this headline">¶</a></h2>
+<p>Idées: En-tête, margin,</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

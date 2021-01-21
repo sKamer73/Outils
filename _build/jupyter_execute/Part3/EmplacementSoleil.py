@@ -38,12 +38,13 @@
 
 # ### Vecteur solaire
 
-# Le vecteur solaire est un vecteur pointant vers le soleil. Sans cette base et pour cette définition de l'azimuth, il s'exprime comme 
+# Le vecteur solaire est un vecteur pointant vers le soleil. Sans cette base et pour cette définition de l'azimuth, il s'exprime comme:
+
 # $$
-# \vec{s}= \sin(\alpha) \times \cos(\gamma) \vec{u_x} + \sin(\alpha) \times \sin(\gamma) \vec{u_y} + \sin(\gamma) \vec{u_z}
+# \vec{s}= \sin(\alpha) \times \cos(\gamma) \vec{u_x} + \cos(\alpha) \times \cos(\gamma) \vec{u_y} + \sin(\gamma) \vec{u_z}
 # $$
 
-# In[58]:
+# In[32]:
 
 
 class solarVector:
@@ -53,10 +54,12 @@ class solarVector:
         self.z=z
     def printVec(self):
         print("x--->"+str(self.x)+"\n y--->" +str(self.y)+"\n z---> "+str(self.z))
+    def prod(self,vec):
+        return (self.x)
 
 def solarVectorFromAzimElev(azim,elev):
     sx = sin(azim) * cos(elev);
-    sy = cos(azim) * sin(elev);
+    sy = cos(azim) * cos(elev);
     sz = sin(elev);
     return solarVector(sx,sy,sz);
     
@@ -73,7 +76,7 @@ def solarVectorFromAzimElev(azim,elev):
 # La déclinaison ($\delta$) correspond à l'inclinaison de l'axe de la terre. Ce dernier varie de -23.4° au solstice d'hiver à 23.4° au solstice d'été. Cet angle peut être relié au jour de l'année via de nombreuses corrélations, la plus reconnue étant celle de l'algorithme PSA.
 # En voici une très proche.
 
-# In[5]:
+# In[20]:
 
 
 import pandas as pd
@@ -88,7 +91,7 @@ cf.go_offline(connected=False)
 init_notebook_mode(connected=False)
 
 
-# In[19]:
+# In[21]:
 
 
 from math import cos, sin
@@ -112,7 +115,7 @@ dfYear.iplot(kind='scatter',x="day",y="declination", title="Déclinaison solaire
 # 
 # Dans cette équation, le temps est en UTC ou heure solaire. En France, (pour l'instant?), l'heure d'été est UTC+2 et hiver UTC+1, c'est-à-dire qu'en hiver le soleil est au sud à 13h et en été à 14h.
 
-# In[45]:
+# In[22]:
 
 
 from math import pi
@@ -123,7 +126,7 @@ dfDay.iplot(x='hour',y='omega', title = "Angle horaire sur 24 h", xTitle="hour",
 
 # L'heure maximale $\omega_{max}$, càd l'heure à laquelle le soleil se couche, s'écrit $\omega_{max} = \arccos(-\tan(\phi) \times \tan(\delta) )$
 
-# In[22]:
+# In[23]:
 
 
 from math import acos, tan, pi
@@ -131,7 +134,7 @@ def omegaMax(day,lat):
     return acos(-tan(lat)*tan(solarDeclinationByDayNumber(day)))
 
 
-# In[36]:
+# In[24]:
 
 
 phi=45.564601 * 3.14159/180;
@@ -148,13 +151,14 @@ dfYear.iplot(x="day",y="hourMax",secondary_y="derivHourMax",
 # Idée de démonstrations: produit de matrices de rotation pour arriver sur le bon repère: Base 0 -> Géocentrée, avec un axe vers le soleil et un z sur la moyenne de l'axe terrestre
 
 # Le vecteur solaire dans la base locale à l'observateur s'écrit alors:
+
 # $$
 # \vec{s} = - \cos(\delta) \times \sin(\omega) \vec{u_x}\\
 # + (\sin(\delta) \times \cos(\phi) - \cos(\delta) \times \cos(\omega) \times \sin(\phi) ) \times \vec{u_y}\\
 # + (\sin(\delta) \times \sin(\phi) + \cos(\delta) \times \cos(\omega) \times \cos(\phi) ) \times \vec{u_z}
 # $$
 
-# In[16]:
+# In[25]:
 
 
 def solarVectorFromDeclinHour(declination,hourAngle,lat):
@@ -164,13 +168,29 @@ def solarVectorFromDeclinHour(declination,hourAngle,lat):
     return solarVector(sx,sy,sz)
 
 
+# ## Pour Hafsa
+
+# In[ ]:
+
+
+dni=400;
+G_horizontale=300;
+day=37;
+declin=solarDeclinationByDayNumber(day);
+hour=9;
+hourAngle=15*(hour-12)*3.14159/180;
+lat=44*degree;
+sunVec=solarVectorFromDeclinHour(declin,hourAngle,lat);
+g_diffus = g_horizontale-dni*
+
+
 # ## Passer d'un système de coordonnées à l'autre
 
 # L'idée est de passer d'un système à l'autre via le vecteur solaire. Les deux formules donnant le vecteur solaire dans le même repère, il devient facile de les inverser. Les algorithmes suivant ont été vérifiés mais on n'est jamais ampte de se planter..
 
 # ### Du vecteur solaire à l'azimuth et l'élévation
 
-# In[99]:
+# In[26]:
 
 
 from math import asin, cos, pi
@@ -189,7 +209,7 @@ def azimElevFromSolarVector(s):
 
 # ### Du vecteur solaire à la déclinaison et l'angle horaire
 
-# In[100]:
+# In[27]:
 
 
 from math import asin, cos, sin, tan
@@ -208,7 +228,7 @@ def declinHourFromSolarVector(s,lat):
 
 # ### D'un système à l'autre
 
-# In[101]:
+# In[28]:
 
 
 def azimElevFromDeclinHour(declin,hour,lat):
@@ -216,7 +236,7 @@ def azimElevFromDeclinHour(declin,hour,lat):
     return azimElevFromSolarVector(s)
 
 
-# In[102]:
+# In[29]:
 
 
 def declinHourFromAzimElev(azim,elev,lat):
@@ -230,11 +250,11 @@ def declinHourFromAzimElev(azim,elev,lat):
 
 # ### Azimuth et élévation
 
-# In[118]:
+# In[30]:
 
 
 from math import pi
-day=150
+day=173
 degree=pi/180;
 dfDay=pd.DataFrame(data=[[k for k in range(0,24)],[(k-12)*15*pi/180 for k in range(0,24)]]).T;
 declin=solarDeclinationByDayNumber(day);
@@ -247,7 +267,7 @@ dfDay.iplot(kind='scatter',mode='markers',size=10,symbol='x', x="azimuth", y="el
             title = "Azimuth vs Elevation during a summer day", xTitle= "Azimuth (°)", yTitle="Elevation (°)", text="hour")
 
 
-# In[120]:
+# In[31]:
 
 
 from math import pi
@@ -266,6 +286,12 @@ def plotAzimVsElev(day):
 
 
 # Lorsque l'élévation est négative, cela correspond aux heures à laquelle le soleil ne s'est pas encore levé.
+
+# In[18]:
+
+
+0.712*0.712+0.1*0.1+0.14*0.14
+
 
 # In[ ]:
 

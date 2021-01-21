@@ -11,6 +11,8 @@
 # 
 # De plus, l'ouverture dans un navigateur internet est un vrai plus. Je mets ici un tuto pour une utilisation rapide, si vous connaissez un peu de Python.
 
+# Vous pouvez télécharger ce Notebook via le bouton télécharger > .ipynb situé en haut de cette page.
+
 # ## Etape 1: Installer Anaconda
 
 # Tout est dans le titre, à chercher sur Qwant ou DuckDuckGo.
@@ -25,6 +27,8 @@
 # * jupyter lab pour Jupyter Lab
 
 # ## Etape 3 : Jouer avec Python et Jupyter
+
+# Les écritures ci-dessous sont en MarkDown, qui est une sorte de traitement de texte avec du Latex, comme expliqué plus bas.
 
 # **Exo 1** : Pour n entier naturel non nul, on pose $H_n = \sum_{k=1}^n \frac{1}{k} $  (série harmonique).
 # 1) Montrer que : $\forall n \in \mathbb{N}, \ln(n + 1) < H_n < 1 + \ln(n)$ et en déduire la limite en $+\infty$ de $H_n$.
@@ -71,6 +75,8 @@ df.iplot(kind='scatter',title='Différentes suites')
 # ## Etape 4: Exporter votre NoteBook au format pdf ou html
 
 # Cela est possible en allant dans le menu > File > Export noteBook as..
+# 
+# Il est possible de le faire depuis la ligne de commande via *jupyter nbconvert --to html YourNotebook.ipynb*
 
 # ### Discussion: Avis personnel sur Lab vs notebook
 
@@ -78,20 +84,33 @@ df.iplot(kind='scatter',title='Différentes suites')
 # 
 # Néanmoins, j'ai pu avoir des soucis lors de l'exportation au format pdf, que j'avais beaucoup moins avec le NoteBook.
 
+# ## Le MarkDown
+
+# Ceci est une sorte de typographie, utilisé dans beaucoup d'autres codes. Latex est résent dans tout ça: une conversion au latex est faite facilement.
+# 
+# Voici différentes astuces et idées (non exhaustives) pour écrire en MarkDown:
+# 1. Ecrire en italique: encadrer le texte à rendre en italique d'une $*$ de chaque côté
+# 2. Ecrire en gras: pareil mais avec deux étoiles: $**$
+# 3. Afficher une image: $![UselessTexte](chemin/a/image)$. Dans le cadre de l'architecture du book, on peut utiliser ../images/NomImage.png
+# 4. Faire un lien cliquable: $[TexteACliquer](lien)$
+# 5. Copier-coller une image -- elle est stocké dans un fichier temporaire, donc lors de l'édition d'un livre elle disparait mais pas lors de "l'impression" d'un unique notebook.
+# 6. Ecrire des équations: il faut encadrer du Latex par deux symboles $
+
 # ## JupyterLab: utilisation pratique
 
-# ### 0. Se déplacer facilement
+# ### Se déplacer facilement
 
 # Il est possible de se déplacer au clavier entre les cellules, ce qui est très pratique. Probablement possible avec le notebook aussi.
 # 
 # Si vous êtes dans une cellule, appuyez sur échap pour passer en mode "commande": vous pourrez alors:
 # * vous déplacer via les flèches
 # * ajouter une cellule avant votre position avec a (pour avant) et b après votre position (pas de moyen mnémotechnique)
-# * copier une cellule avec c et coller avec v (pas de touche ctrl)
+# * copier une cellule avec c et coller avec v (pas de touche ctrl); couper avec x
 # * entrer dans une cellule avec enter
 # * modifier le type de la cellule: y -> code, m -> markdown
+# * supprimer une cellule en tapant dd
 
-# ### 1. Ouvrir une console
+# ### Ouvrir une console
 
 # Clic droit sur l'onglet du notebook > new console for notebook.
 # 

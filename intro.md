@@ -14,3 +14,5 @@ Du code pour tracer des courbes est également disponible, comme exemple de ce q
 La première partie de ce tutoriel explique comment faire des livres. Cela est principalement un résumé de ce que j'ai compris, et n'est pas exempt d'erreurs. Par ailleurs, ces logiciels sont en grande évolution; de nombreuses personnes travaillent à faire ces interfaces plus maniables, et je pense que ces outils peuvent devenir une norme.
 
 La seconde partie explique comment tracer des courbes et des exemples d'interactivité sont disponibles dans les NoteBooks. 
+
+La troisième et quatrième partie correspondent à des cours sur l'énergie solaire.

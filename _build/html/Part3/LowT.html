@@ -174,6 +174,11 @@
    T(z) dans un panneau
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part4/presentation.html">
+   Les différents membres de la coloc’
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -274,6 +279,56 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pertes-thermiques">
+     Pertes thermiques
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modelisation-habituelle">
+       Modélisation habituelle
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energie-utile-recuperee-calcul-de-la-temperature-de-sortie">
+     Energie utile récupérée – Calcul de la température de sortie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercices">
+     Exercices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bilan-sur-le-stockage">
+   Bilan sur le stockage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice">
+     Exercice
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -283,6 +338,131 @@
                 
   <div class="section" id="basses-temperatures">
 <h1>Basses Températures<a class="headerlink" href="#basses-temperatures" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Les panneaux solaires basses températures sont, d’après moi, regroupés en trois catégories, fonction de leur technologie et de la température atteignable en sortie.</p>
+<p>Il y a aujourd’hui trois technologies “mainstream”:</p>
+<ol class="simple">
+<li><p>Des tubes noirs, sans protection, au soleil. Utilisé dans les piscines</p></li>
+<li><p>Des collecteurs plans: une vitre protégeant un absorbeur noir, derrière lequel passe un tuyau dans lequel cricule le fluide caloporteur.</p></li>
+<li><p>Des tubes sous vides (ETC, evacuated tube collectors): des tubes en verre dans lesquels un absorbeur noir récupère la chaleur. Il y a soit un caloduc, soit une circulation direct du fluide caloporteur. Les tubes étant sous vide, les pertes par convection sont minimisées.</p></li>
+</ol>
+<p>Le fluide caloporteur est le plus souvent de l’eau. Sous nos latitudes, on mélange l’eau avec du glycol afin d’éviter que cette dernière ne gèle la nuit. Il est donc nécessaire d’installer un échangeur entre le stockage et le panneau solaire.</p>
+<p>L’énergie incidente sur le collecteur est caractérisé par les propriétés optiques du système: le verre laisse passer une certaine portion du rayonnement; de même, l’absorbeur n’absorbe pas tout le rayonnement.</p>
+<div class="section" id="pertes-thermiques">
+<h3>Pertes thermiques<a class="headerlink" href="#pertes-thermiques" title="Permalink to this headline">¶</a></h3>
+<p>Les transferts thermiques se font de trois manières: rayonnement, conduction et convection. Il est donc intéressant de travailler à réduire les pertes par les trois modes de transfert de la chaleur.</p>
+<ol class="simple">
+<li><p>Conduction: l’arrière des panneaux est isolé.</p></li>
+<li><p>Rayonnement: le verre possède un spectre d’absorption des infrarouges lointains, ce qui correspond aux émissions basse température.</p></li>
+<li><p>Convection: l’air permet un transfert de chaleur, néanmoins son non-renouvellement permet une montée en température (effet de serre). Sous vide, le transfert est encore plus faible.</p></li>
+</ol>
+<p>Chacun des termes a une expression classique; les pertes par conduction et convection sont proportionelles à <span class="math notranslate nohighlight">\(T-T_{amb}\)</span>, celles par rayonnement à <span class="math notranslate nohighlight">\(T^4-T_{amb}^4\)</span>. Sur une petite plage de calculs, il est possible d’écrire cela <span class="math notranslate nohighlight">\((T^2-T_{amb}^2)*(T^2+T_{amb}^2\)</span> et de considérer le deuxième terme constant. Des normes ont donc été mises en place pour le calcul des pertes thermiques.</p>
+<div class="section" id="modelisation-habituelle">
+<h4>Modélisation habituelle<a class="headerlink" href="#modelisation-habituelle" title="Permalink to this headline">¶</a></h4>
+<p>Les pertes thermiques des collecteurs sont déterminés expérimentalement par les constructeurs. Ces pertes, en Watt par m² de collecteur, s’écrivent:</p>
+<div class="math notranslate nohighlight">
+\[ 
+P_{pertes} = a_1 \times (\bar{T}-T_{amb})+a_2 \times (\bar{T}-T_{amb})^2 
+\]</div>
+<p>Avec <span class="math notranslate nohighlight">\(\bar{T}=\frac{T_{inlet}+T_{outlet}}{2}\)</span> la température moyenne dans le panneau. <span class="math notranslate nohighlight">\(a_1\)</span> et <span class="math notranslate nohighlight">\(a_2\)</span> sont déterminés expérimentalement.</p>
+<p><span class="math notranslate nohighlight">\(\bar{T}\)</span>: ceci est la moyenne dans le panneau. Définie de manière classique, càd: <span class="math notranslate nohighlight">\(\bar{T}=\frac{1}{L} \times \int_0^{L} T(z)dz\)</span>, il peut être intéressant de se demander si cette dernière est vraiment égale à la moyenne de la température d’entrée et de sortie. Cela est “très” vraie si la température dans le panneau est linéaire, ce qui est le cas selon la plage de fonctionnement.</p>
+</div>
+</div>
+<div class="section" id="energie-utile-recuperee-calcul-de-la-temperature-de-sortie">
+<h3>Energie utile récupérée – Calcul de la température de sortie<a class="headerlink" href="#energie-utile-recuperee-calcul-de-la-temperature-de-sortie" title="Permalink to this headline">¶</a></h3>
+<p>L’énergie utile récupérée par le panneau s’écrit:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{m} \times C_p \times (T_{outlet}-T_{inlet}) = (P_{in}-P_{pertes}) \times A_{panneau}
+\]</div>
+<p>Avec <span class="math notranslate nohighlight">\(\dot{m}\)</span> le débit dans le panneau solaire en kg/s, <span class="math notranslate nohighlight">\(C_p\)</span> la capacité calorifique du fluide caloporteur en J/kg.K, <span class="math notranslate nohighlight">\(P_{in}\)</span> la puissance en entrée du collecteur en W/m², <span class="math notranslate nohighlight">\(P_{pertes}\)</span> les pertes en W/m² du panneau.</p>
+<p>On peut écrire <span class="math notranslate nohighlight">\(P_{in } = \eta_{opt} * G\)</span> avec G l’irrdiance incidente en W/m² et <span class="math notranslate nohighlight">\(\eta_{opt}\)</span> l’efficacité optique du collecteur. Dans le cadre des capteurs basses températures, il s’agit en général du produit de la transparence du verre par l’absorptivité du récepteur.</p>
+<p>Nous obtenons donc une relation entre:</p>
+<ul class="simple">
+<li><p>la température en entrée du panneau du fluide caloporteur</p></li>
+<li><p>la température en sortie</p></li>
+<li><p>le débit dans le panneau solaire</p></li>
+<li><p>la puissance solaire en entrée</p></li>
+</ul>
+<p>Selon l’inconnue et les paramètres, nous pouvons en déduire une des variables. Il peut être d’intéressant d’optimiser le débit afin de maximiser l’énergie totale du système. C’est le but de mon doctorat, environ.</p>
+</div>
+<div class="section" id="exercices">
+<h3>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Exprimer la température de sortie en fonction des autres variables.</p></li>
+<li><p>Avec les paramètres suivants: <span class="math notranslate nohighlight">\(\eta_{opt}=0.8, \ a_1 = 3.01 W/m².K , \ a_2=0.2 W/m².K²\)</span> et en choisissant des valeurs plausibles pour les autres paramètres</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="bilan-sur-le-stockage">
+<h2>Bilan sur le stockage<a class="headerlink" href="#bilan-sur-le-stockage" title="Permalink to this headline">¶</a></h2>
+<p>De manière très simplifiée (en ignorant la stratification par exemple), on peut définir une température moyenne de stockage.</p>
+<p>Dans une maison française post-nucléarisation, le chauffe-eau est souvent électrique. Certains tarifs d’EDF rémunèrent l’utilisation d’Heures Creuses, afin de lisser la demande électrique sur le réseau. Par conséquent, un nombre certain de chauffe-eau s’allument à 22H, ainsi que d’autres appareils électroménagers comme les machines. Ce qui donne les courbes de demande électrique suivante:</p>
+<p>Une équation bilan serait : <span class="math notranslate nohighlight">\(M\times \frac{dh}{dt}= \dot{q}_{in}-\dot{q}_{out}-\dot{q}_{pertes}\)</span>, avec <em>h</em> l’enthalpie du fluide dans le stockage, M la masse du stockage, <span class="math notranslate nohighlight">\(\dot{q}_{in}=\dot{m} \times C_p \times (T_{out,panneau}-T_{stockage})\)</span> ,  <span class="math notranslate nohighlight">\(\dot{q}_{out}=\dot{m}_{demande} \times C_p \times (T_{stockage}-T_{reseau})\)</span> et <span class="math notranslate nohighlight">\(\dot{q}_{pertes}= UA \times (T_{stockage}-T_{ambient})\)</span>. <span class="math notranslate nohighlight">\(dh = C_p \times dT\)</span></p>
+<p>On obtient donc une équation différentielle en z. Il va donc falloir la résoudre. Cela est fait de manière très classique en discrétisant le temps, par exemple au niveau horaire, ce que l’on fait en prenant <span class="math notranslate nohighlight">\(\delta t = 3600s\)</span> et en remplaçant <span class="math notranslate nohighlight">\(\frac{dT(t)}{dt} = \frac{T_{n+1}-T_n}{\delta t}\)</span>. <span class="math notranslate nohighlight">\(T_n\)</span> correspond à la température à l’heure n. On obtient alors la température à l’heure n+1 via l’équation bilan. De proche en proche, cela permet de résoudre la température dans le panneau.</p>
+<div class="section" id="exercice">
+<h3>Exercice<a class="headerlink" href="#exercice" title="Permalink to this headline">¶</a></h3>
+<p>Calculer la température du stockage au cours d’une journée avec l’irradiance définie comme ci-dessous pour le panneau de l’exercice précédent, en utilisant les valeurs de <span class="math notranslate nohighlight">\(\dot{m}_{demande}\)</span> présentes dans les photos du livre ainsi que celle de <span class="math notranslate nohighlight">\(T_{reseau}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">polynomial</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">10</span>
+<span class="n">polynomial</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/LowT_28_0.png" src="../_images/LowT_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sols</span><span class="o">=</span><span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">polynomial</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sols</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/LowT_30_0.png" src="../_images/LowT_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{-1/2 - sqrt(3)*I/2: 1, -1/2 + sqrt(3)*I/2: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

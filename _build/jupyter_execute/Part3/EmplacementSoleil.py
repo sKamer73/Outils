@@ -168,22 +168,6 @@ def solarVectorFromDeclinHour(declination,hourAngle,lat):
     return solarVector(sx,sy,sz)
 
 
-# ## Pour Hafsa
-
-# In[ ]:
-
-
-dni=400;
-G_horizontale=300;
-day=37;
-declin=solarDeclinationByDayNumber(day);
-hour=9;
-hourAngle=15*(hour-12)*3.14159/180;
-lat=44*degree;
-sunVec=solarVectorFromDeclinHour(declin,hourAngle,lat);
-g_diffus = g_horizontale-dni*
-
-
 # ## Passer d'un système de coordonnées à l'autre
 
 # L'idée est de passer d'un système à l'autre via le vecteur solaire. Les deux formules donnant le vecteur solaire dans le même repère, il devient facile de les inverser. Les algorithmes suivant ont été vérifiés mais on n'est jamais ampte de se planter..

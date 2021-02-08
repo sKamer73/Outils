@@ -3,8 +3,4 @@
 
 # # La Concentration Linéaire
 
-# In[ ]:
-
-
-
-
+# 

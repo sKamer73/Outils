@@ -45,6 +45,8 @@ init_notebook_mode(connected=False)
 # 
 # Le rayonnement global, et donc l'énergie incidente sur le plan, est la somme des deux. 
 
+# ### 
+
 # ### Obtenir des valeurs
 
 # Le site internet [PVGIS](https://ec.europa.eu/jrc/en/pvgis) propose des données solaires en accès libres. Il donne accès à un outil de simulation de calculs photovoltaïques et à de nombreuses données météo.
@@ -69,7 +71,7 @@ init_notebook_mode(connected=False)
 # * WD10m: 10-m wind direction (0 = N
 # * SP: Surface (air) pressure (Pa)
 
-# In[30]:
+# In[1]:
 
 
 from math import pi
@@ -85,7 +87,7 @@ latElOued=32.940*degree;
 latChambe = 45.644 * degree;
 
 
-# In[45]:
+# In[ ]:
 
 
 dayPlot=140
@@ -94,6 +96,23 @@ toPlot.iplot(x=[k for k in range(0,24)], y=['El_Oued_G(h)','Chambe_G(h)'])
 
 
 # ## Les heures équivalentes
+
+# ## Déterminer le rayonnement diffus à partir du rayonnement total et direct
+
+# In[34]:
+
+
+dni=400;
+G_horizontale=300;
+day=37;
+declin=solarDeclinationByDayNumber(day);
+hour=9;
+hourAngle=15*(hour-12)*3.14159/180;
+lat=44*degree;
+sunVec=solarVectorFromDeclinHour(declin,hourAngle,lat);
+g_diffus = G_horizontale-dni*(sunVec.z)
+print(g_diffus)
+
 
 # ## L'absorption et le spectre solaire
 

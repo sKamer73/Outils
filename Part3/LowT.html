@@ -138,6 +138,11 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="IntroEnergie.html">
+   Notions utiles de l’Energie
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="EmplacementSoleil.html">
    Décrire l’emplacement du soleil
   </a>
@@ -160,23 +165,23 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Calculs
+  Low-tech/Maison
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Part4/BilanT4.html">
-   Température de paroi dans une tour
+  <a class="reference internal" href="../Part4/PV&amp;ChargeBasique.html">
+   Faire un système Photovoltaïque Maison
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Part4/FlatPlate.html">
-   T(z) dans un panneau
+  <a class="reference internal" href="../Part4/SolaireActif.html">
+   Solaire thermique actif
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Part4/presentation.html">
-   Les différents membres de la coloc’
+  <a class="reference internal" href="../Part4/SolarPunk.html">
+   SolarPunk
   </a>
  </li>
 </ul>
@@ -290,6 +295,11 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#efficacite-optique">
+     Efficacité optique
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pertes-thermiques">
      Pertes thermiques
     </a>
@@ -302,25 +312,25 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#energie-utile-recuperee-calcul-de-la-temperature-de-sortie">
-     Energie utile récupérée – Calcul de la température de sortie
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercices">
-     Exercices
+    <a class="reference internal nav-link" href="#efficacite-du-panneau-bilan-thermique">
+     Efficacité du panneau &amp; Bilan Thermique
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bilan-sur-le-stockage">
-   Bilan sur le stockage
+  <a class="reference internal nav-link" href="#stockage-et-systeme">
+   Stockage et système
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercice">
-     Exercice
+    <a class="reference internal nav-link" href="#thermosiphon">
+     Thermosiphon
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercices">
+     Exercices
     </a>
    </li>
   </ul>
@@ -340,24 +350,44 @@
 <h1>Basses Températures<a class="headerlink" href="#basses-temperatures" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Les panneaux solaires basses températures sont, d’après moi, regroupés en trois catégories, fonction de leur technologie et de la température atteignable en sortie.</p>
+<p>Les panneaux solaires basses températures sont regroupés en trois catégories majeures, fonction de leur technologie et de la température atteignable en sortie.</p>
 <p>Il y a aujourd’hui trois technologies “mainstream”:</p>
-<ol class="simple">
-<li><p>Des tubes noirs, sans protection, au soleil. Utilisé dans les piscines</p></li>
-<li><p>Des collecteurs plans: une vitre protégeant un absorbeur noir, derrière lequel passe un tuyau dans lequel cricule le fluide caloporteur.</p></li>
-<li><p>Des tubes sous vides (ETC, evacuated tube collectors): des tubes en verre dans lesquels un absorbeur noir récupère la chaleur. Il y a soit un caloduc, soit une circulation direct du fluide caloporteur. Les tubes étant sous vide, les pertes par convection sont minimisées.</p></li>
-</ol>
-<p>Le fluide caloporteur est le plus souvent de l’eau. Sous nos latitudes, on mélange l’eau avec du glycol afin d’éviter que cette dernière ne gèle la nuit. Il est donc nécessaire d’installer un échangeur entre le stockage et le panneau solaire.</p>
+<div class="sidebar">
+<p class="sidebar-title">La plus simple</p>
+<p>Des tubes noirs, sans protection, au soleil. Utilisé dans les piscines</p>
+</div>
+<p><img alt="Piscine" src="../_images/piscine.PNG" /></p>
+<div class="highlight-{sidebar}2. notranslate"><div class="highlight"><pre><span></span>Une vitre protégeant un absorbeur noir, derrière lequel passe un tuyau dans lequel cricule le fluide caloporteur. La vitre bloque les pertes et permet une meilleure montée en température.
+</pre></div>
+</div>
+<p><img alt="FlatPlate" src="../_images/flatPlate.PNG" /></p>
+<div class="sidebar">
+<p class="sidebar-title">3. ETC</p>
+<p>ETC, evacuated tube collectors: des tubes en verre dans lesquels un absorbeur noir récupère la chaleur. Il y a soit un caloduc, soit une circulation direct du fluide caloporteur. Les tubes étant sous vide, les pertes par convection sont minimisées.</p>
+</div>
+<p><img alt="ETC" src="../_images/ETC.PNG" /></p>
+<p>Le fluide caloporteur est le plus souvent de l’eau. Sous nos latitudes, on mélange l’eau avec du glycol afin d’éviter que cette dernière ne gèle la nuit en hiver. Il est donc nécessaire d’installer un échangeur entre le stockage et le panneau solaire.</p>
 <p>L’énergie incidente sur le collecteur est caractérisé par les propriétés optiques du système: le verre laisse passer une certaine portion du rayonnement; de même, l’absorbeur n’absorbe pas tout le rayonnement.</p>
+<div class="section" id="efficacite-optique">
+<h3>Efficacité optique<a class="headerlink" href="#efficacite-optique" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="sidebar-title"><strong>L’intérêt du verre</strong></p>
+<p>Le verre laisse passer en grande partie l’énergie solaire, mais bloque les rayonnements infrarouges, c’est-à-dire ceux émis à basse température. Il diminue également grandement les pertes par convection!</p>
+</div>
+<p>L’efficacité optique est défini comme la proportion d’énergie solaire arrivant jusqu’à l’absorbeur. Dans le cadre des capteurs plans, la lumière traverse une surface: la protection en verre, transparente aux rayons solaires, a un indice de transparence <span class="math notranslate nohighlight">\(\tau\)</span> varie en fonction du verre et de sa propreté; il est en général de l’ordre de 0.9.</p>
+<p>L’absorbeur, souvent un métal noir, a généralement une absorption de 0.9 également.</p>
+<p>On écrit souvent l’efficacité optique comme <span class="math notranslate nohighlight">\(\eta_0\)</span> ou <span class="math notranslate nohighlight">\(\eta_{opt}\)</span>. La puissance en entrée du capteur s’écrit alors <span class="math notranslate nohighlight">\(P_{entrée} = \eta_0 * G * A_{panneau}\)</span> avec <span class="math notranslate nohighlight">\(P_{entrée}\)</span> en W, G l’irradiation totale en W/m² et <span class="math notranslate nohighlight">\(A_{panneau}\)</span> l’aire du panneau en m².</p>
+<p><img alt="Schéma Panneau Plan" src="Part3\../images/sch%C3%A9maPanneau.PNG" /></p>
+</div>
 <div class="section" id="pertes-thermiques">
 <h3>Pertes thermiques<a class="headerlink" href="#pertes-thermiques" title="Permalink to this headline">¶</a></h3>
 <p>Les transferts thermiques se font de trois manières: rayonnement, conduction et convection. Il est donc intéressant de travailler à réduire les pertes par les trois modes de transfert de la chaleur.</p>
 <ol class="simple">
 <li><p>Conduction: l’arrière des panneaux est isolé.</p></li>
-<li><p>Rayonnement: le verre possède un spectre d’absorption des infrarouges lointains, ce qui correspond aux émissions basse température.</p></li>
+<li><p>Rayonnement: le verre possède est réflectif dans les infrarouges lointains, ce qui correspond aux émissions basse température.</p></li>
 <li><p>Convection: l’air permet un transfert de chaleur, néanmoins son non-renouvellement permet une montée en température (effet de serre). Sous vide, le transfert est encore plus faible.</p></li>
 </ol>
-<p>Chacun des termes a une expression classique; les pertes par conduction et convection sont proportionelles à <span class="math notranslate nohighlight">\(T-T_{amb}\)</span>, celles par rayonnement à <span class="math notranslate nohighlight">\(T^4-T_{amb}^4\)</span>. Sur une petite plage de calculs, il est possible d’écrire cela <span class="math notranslate nohighlight">\((T^2-T_{amb}^2)*(T^2+T_{amb}^2\)</span> et de considérer le deuxième terme constant. Des normes ont donc été mises en place pour le calcul des pertes thermiques.</p>
+<p>Chacun des termes a une expression classique; les pertes par conduction et convection sont proportionelles à <span class="math notranslate nohighlight">\(T-T_{amb}\)</span>, celles par rayonnement à <span class="math notranslate nohighlight">\(T^4-T_{amb}^4\)</span>. Sur une petite plage de calculs, il est possible d’écrire cela <span class="math notranslate nohighlight">\((T^2-T_{amb}^2)*(T^2+T_{amb}^2)\)</span> et de considérer le deuxième terme constant. Des normes ont donc été mises en place pour le calcul des pertes thermiques.</p>
 <div class="section" id="modelisation-habituelle">
 <h4>Modélisation habituelle<a class="headerlink" href="#modelisation-habituelle" title="Permalink to this headline">¶</a></h4>
 <p>Les pertes thermiques des collecteurs sont déterminés expérimentalement par les constructeurs. Ces pertes, en Watt par m² de collecteur, s’écrivent:</p>
@@ -369,23 +399,78 @@ P_{pertes} = a_1 \times (\bar{T}-T_{amb})+a_2 \times (\bar{T}-T_{amb})^2
 <p><span class="math notranslate nohighlight">\(\bar{T}\)</span>: ceci est la moyenne dans le panneau. Définie de manière classique, càd: <span class="math notranslate nohighlight">\(\bar{T}=\frac{1}{L} \times \int_0^{L} T(z)dz\)</span>, il peut être intéressant de se demander si cette dernière est vraiment égale à la moyenne de la température d’entrée et de sortie. Cela est “très” vraie si la température dans le panneau est linéaire, ce qui est le cas selon la plage de fonctionnement.</p>
 </div>
 </div>
-<div class="section" id="energie-utile-recuperee-calcul-de-la-temperature-de-sortie">
-<h3>Energie utile récupérée – Calcul de la température de sortie<a class="headerlink" href="#energie-utile-recuperee-calcul-de-la-temperature-de-sortie" title="Permalink to this headline">¶</a></h3>
-<p>L’énergie utile récupérée par le panneau s’écrit:</p>
+<div class="section" id="efficacite-du-panneau-bilan-thermique">
+<h3>Efficacité du panneau &amp; Bilan Thermique<a class="headerlink" href="#efficacite-du-panneau-bilan-thermique" title="Permalink to this headline">¶</a></h3>
+<p>La puissance utile récupérée par le panneau s’écrit:</p>
 <div class="math notranslate nohighlight">
 \[
-\dot{m} \times C_p \times (T_{outlet}-T_{inlet}) = (P_{in}-P_{pertes}) \times A_{panneau}
+P_u = \dot{m} \times C_p \times (T_{sortie}-T_{entrée}) = (P_{in}-P_{pertes}) \times A_{panneau}
 \]</div>
-<p>Avec <span class="math notranslate nohighlight">\(\dot{m}\)</span> le débit dans le panneau solaire en kg/s, <span class="math notranslate nohighlight">\(C_p\)</span> la capacité calorifique du fluide caloporteur en J/kg.K, <span class="math notranslate nohighlight">\(P_{in}\)</span> la puissance en entrée du collecteur en W/m², <span class="math notranslate nohighlight">\(P_{pertes}\)</span> les pertes en W/m² du panneau.</p>
-<p>On peut écrire <span class="math notranslate nohighlight">\(P_{in } = \eta_{opt} * G\)</span> avec G l’irrdiance incidente en W/m² et <span class="math notranslate nohighlight">\(\eta_{opt}\)</span> l’efficacité optique du collecteur. Dans le cadre des capteurs basses températures, il s’agit en général du produit de la transparence du verre par l’absorptivité du récepteur.</p>
-<p>Nous obtenons donc une relation entre:</p>
-<ul class="simple">
-<li><p>la température en entrée du panneau du fluide caloporteur</p></li>
-<li><p>la température en sortie</p></li>
-<li><p>le débit dans le panneau solaire</p></li>
-<li><p>la puissance solaire en entrée</p></li>
-</ul>
-<p>Selon l’inconnue et les paramètres, nous pouvons en déduire une des variables. Il peut être d’intéressant d’optimiser le débit afin de maximiser l’énergie totale du système. C’est le but de mon doctorat, environ.</p>
+<p>Avec <span class="math notranslate nohighlight">\(\dot{m}\)</span> le débit dans le panneau solaire en kg/s, <span class="math notranslate nohighlight">\(C_p\)</span> la capacité calorifique du fluide caloporteur en J/kg.K, <span class="math notranslate nohighlight">\(P_{in}\)</span> la puissance en entrée du collecteur en W/m², <span class="math notranslate nohighlight">\(P_{pertes}\)</span> les pertes en W/m² du panneau, <span class="math notranslate nohighlight">\(P_u\)</span> la puissance utile récupérée par le panneau.</p>
+<p><strong>Efficacité totale du panneau</strong>:</p>
+<p>L’efficacité du système se définit comme le rapport de la puissance utile sur l’énergie solaire incidente: <span class="math notranslate nohighlight">\(\eta = \frac{P_u}{G*A_{panneau}} = \eta_{opt}-a_1 * \frac{\bar{T}-T_{amb}}{G}-a_2*\frac{(\bar{T}-T_{amb})^2}{G}\)</span></p>
+<p>Les données des courbes suivantes sont tirées d’<a class="reference external" href="https://www.researchgate.net/publication/331178549_Comparison_of_the_Energy_Performance_between_Flat-plate_and_Heat_Pipe_Evacuated_Tube_Collectors_for_Solar_Water_Heating_Systems_under_Mediterranean_Climate_Conditions/figures?lo=1">ici</a>.</p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta0_FP</span> <span class="o">=</span> <span class="mf">0.773</span>
+<span class="n">a1_FP</span> <span class="o">=</span> <span class="mf">3.243</span>
+<span class="n">a2_FP</span> <span class="o">=</span> <span class="mf">0.014</span>
+<span class="n">eta0_ETC</span> <span class="o">=</span> <span class="mf">0.735</span>
+<span class="n">a1_ETC</span> <span class="o">=</span> <span class="mf">1.16</span>
+<span class="n">a2_ETC</span> <span class="o">=</span> <span class="mf">0.0053</span>
+<span class="n">Tamb</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">G</span><span class="o">=</span><span class="mi">700</span>
+<span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="n">eta0</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">eta0</span><span class="o">-</span><span class="n">a1</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">/</span><span class="n">G</span><span class="o">-</span><span class="n">a2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">Tamb</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">G</span>
+<span class="n">eta_FP</span> <span class="o">=</span> <span class="n">eta</span><span class="p">(</span><span class="n">eta0_FP</span><span class="p">,</span><span class="n">a1_FP</span><span class="p">,</span><span class="n">a2_FP</span><span class="p">)</span>
+<span class="n">eta_ETC</span> <span class="o">=</span> <span class="n">eta</span><span class="p">(</span><span class="n">eta0_ETC</span><span class="p">,</span><span class="n">a1_ETC</span><span class="p">,</span><span class="n">a2_ETC</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Tamb</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">eta1</span> <span class="o">=</span> <span class="p">[</span><span class="n">eta_FP</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Tamb</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">eta2</span> <span class="o">=</span> <span class="p">[</span><span class="n">eta_ETC</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Tamb</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">eta1</span><span class="p">,</span><span class="n">eta2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;$</span><span class="se">\f</span><span class="s1">rac{T-T_</span><span class="si">{amb}</span><span class="s1">}</span><span class="si">{G}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="s1">&#39;$\eta_</span><span class="si">{FP}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="s1">&#39;$\eta_</span><span class="si">{ETC}</span><span class="s1">$&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;$</span><span class="se">\f</span><span class="s1">rac{T-T_</span><span class="si">{amb}</span><span class="s1">}</span><span class="si">{G}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;$\eta_</span><span class="si">{FP}</span><span class="s1">$&#39;</span><span class="p">,</span><span class="s1">&#39;$\eta_</span><span class="si">{ETC}</span><span class="s1">$&#39;</span><span class="p">],</span> 
+         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Tracé des différentes efficacités avec G=700W/m² et T_amb=10°C&quot;</span><span class="p">,</span> <span class="n">xTitle</span><span class="o">=</span><span class="s1">&#39;$T_</span><span class="si">{sortie}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">yTitle</span> <span class="o">=</span> <span class="s1">&#39;$\eta$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>                            <div id="cbda4a49-3ffa-4273-9d5f-39c1328ece80" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};
+                    window.PLOTLYENV.BASE_URL='https://plot.ly';                                    if (document.getElementById("cbda4a49-3ffa-4273-9d5f-39c1328ece80")) {                    Plotly.newPlot(                        "cbda4a49-3ffa-4273-9d5f-39c1328ece80",                        [{"line": {"color": "rgba(255, 153, 51, 1.0)", "dash": "solid", "shape": "linear", "width": 1.3}, "mode": "lines", "name": "$\\eta_{FP}$", "text": "", "type": "scatter", "x": [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 60.0, 61.0, 62.0, 63.0, 64.0, 65.0, 66.0, 67.0, 68.0, 69.0, 70.0, 71.0, 72.0, 73.0, 74.0, 75.0, 76.0, 77.0, 78.0, 79.0, 80.0, 81.0, 82.0, 83.0, 84.0, 85.0, 86.0, 87.0, 88.0, 89.0, 90.0, 91.0, 92.0, 93.0, 94.0, 95.0, 96.0, 97.0, 98.0, 99.0], "y": [0.773, 0.7683471428571429, 0.7636542857142857, 0.7589214285714286, 0.7541485714285715, 0.7493357142857143, 0.7444828571428571, 0.7395900000000001, 0.7346571428571429, 0.7296842857142858, 0.7246714285714286, 0.7196185714285714, 0.7145257142857143, 0.7093928571428572, 0.70422, 0.6990071428571429, 0.6937542857142858, 0.6884614285714286, 0.6831285714285714, 0.6777557142857144, 0.6723428571428571, 0.66689, 0.6613971428571429, 0.6558642857142857, 0.6502914285714286, 0.6446785714285714, 0.6390257142857143, 0.6333328571428571, 0.6276, 0.6218271428571429, 0.6160142857142857, 0.6101614285714285, 0.6042685714285714, 0.5983357142857143, 0.5923628571428572, 0.58635, 0.5802971428571428, 0.5742042857142857, 0.5680714285714286, 0.5618985714285715, 0.5556857142857143, 0.5494328571428572, 0.5431400000000001, 0.5368071428571429, 0.5304342857142857, 0.5240214285714286, 0.5175685714285715, 0.5110757142857143, 0.5045428571428572, 0.4979700000000001, 0.4913571428571429, 0.48470428571428575, 0.47801142857142864, 0.47127857142857144, 0.46450571428571436, 0.4576928571428571, 0.45084, 0.4439471428571429, 0.4370142857142858, 0.4300414285714286, 0.4230285714285715, 0.41597571428571434, 0.40888285714285716, 0.40175, 0.3945771428571429, 0.3873642857142857, 0.38011142857142866, 0.37281857142857144, 0.3654857142857143, 0.3581128571428571, 0.3507, 0.34324714285714286, 0.3357542857142858, 0.32822142857142855, 0.32064857142857145, 0.3130357142857143, 0.3053828571428572, 0.29769, 0.2899571428571429, 0.2821842857142857, 0.2743714285714286, 0.26651857142857144, 0.25862571428571435, 0.25069285714285716, 0.24272000000000007, 0.2347071428571429, 0.2266542857142858, 0.21856142857142863, 0.21042857142857144, 0.20225571428571426]}, {"line": {"color": "rgba(55, 128, 191, 1.0)", "dash": "solid", "shape": "linear", "width": 1.3}, "mode": "lines", "name": "$\\eta_{ETC}$", "text": "", "type": "scatter", "x": [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 38.0, 39.0, 40.0, 41.0, 42.0, 43.0, 44.0, 45.0, 46.0, 47.0, 48.0, 49.0, 50.0, 51.0, 52.0, 53.0, 54.0, 55.0, 56.0, 57.0, 58.0, 59.0, 60.0, 61.0, 62.0, 63.0, 64.0, 65.0, 66.0, 67.0, 68.0, 69.0, 70.0, 71.0, 72.0, 73.0, 74.0, 75.0, 76.0, 77.0, 78.0, 79.0, 80.0, 81.0, 82.0, 83.0, 84.0, 85.0, 86.0, 87.0, 88.0, 89.0, 90.0, 91.0, 92.0, 93.0, 94.0, 95.0, 96.0, 97.0, 98.0, 99.0], "y": [0.735, 0.7333352857142856, 0.7316554285714285, 0.7299604285714286, 0.7282502857142857, 0.726525, 0.7247845714285714, 0.723029, 0.7212582857142857, 0.7194724285714285, 0.7176714285714285, 0.7158552857142858, 0.714024, 0.7121775714285714, 0.710316, 0.7084392857142857, 0.7065474285714286, 0.7046404285714285, 0.7027182857142857, 0.7007810000000001, 0.6988285714285715, 0.696861, 0.6948782857142857, 0.6928804285714286, 0.6908674285714286, 0.6888392857142857, 0.686796, 0.6847375714285715, 0.6826639999999999, 0.6805752857142856, 0.6784714285714286, 0.6763524285714285, 0.6742182857142857, 0.672069, 0.6699045714285714, 0.667725, 0.6655302857142857, 0.6633204285714286, 0.6610954285714286, 0.6588552857142858, 0.6566, 0.6543295714285714, 0.652044, 0.6497432857142857, 0.6474274285714285, 0.6450964285714285, 0.6427502857142857, 0.6403890000000001, 0.6380125714285714, 0.635621, 0.6332142857142857, 0.6307924285714286, 0.6283554285714286, 0.6259032857142857, 0.623436, 0.6209535714285714, 0.618456, 0.6159432857142858, 0.6134154285714286, 0.6108724285714286, 0.6083142857142857, 0.605741, 0.6031525714285714, 0.600549, 0.5979302857142857, 0.5952964285714285, 0.5926474285714286, 0.5899832857142857, 0.587304, 0.5846095714285714, 0.5819, 0.5791752857142857, 0.5764354285714286, 0.5736804285714285, 0.5709102857142857, 0.568125, 0.5653245714285714, 0.5625089999999999, 0.5596782857142857, 0.5568324285714287, 0.5539714285714286, 0.5510952857142857, 0.548204, 0.5452975714285715, 0.542376, 0.5394392857142857, 0.5364874285714286, 0.5335204285714287, 0.5305382857142857, 0.5275409999999999]}],                        {"legend": {"bgcolor": "#F5F6F9", "font": {"color": "#4D5663"}}, "paper_bgcolor": "#F5F6F9", "plot_bgcolor": "#F5F6F9", "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"font": {"color": "#4D5663"}, "text": "Trac\u00e9 des diff\u00e9rentes efficacit\u00e9s avec G=700W/m\u00b2 et T_amb=10\u00b0C"}, "xaxis": {"gridcolor": "#E1E5ED", "showgrid": true, "tickfont": {"color": "#4D5663"}, "title": {"font": {"color": "#4D5663"}, "text": "$T_{sortie}$"}, "zerolinecolor": "#E1E5ED"}, "yaxis": {"gridcolor": "#E1E5ED", "showgrid": true, "tickfont": {"color": "#4D5663"}, "title": {"font": {"color": "#4D5663"}, "text": "$\\eta$"}, "zerolinecolor": "#E1E5ED"}},                        {"showLink": true, "linkText": "Export to plot.ly", "plotlyServerURL": "https://plot.ly", "responsive": true}                    ).then(function(){
+
+var gd = document.getElementById('cbda4a49-3ffa-4273-9d5f-39c1328ece80');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="stockage-et-systeme">
+<h2>Stockage et système<a class="headerlink" href="#stockage-et-systeme" title="Permalink to this headline">¶</a></h2>
+<p>Une installation solaire active est généralement constituée de panneaux solaires, d’un ballon de stockage, d’un chauffage d’appoint et d’une pompe.</p>
+<p>Dans une maison française post-nucléarisation, le chauffe-eau est souvent électrique.</p>
+<p>Certains tarifs d’EDF rémunèrent l’utilisation d’Heures Creuses, afin de lisser la demande électrique sur le réseau. Par conséquent, un nombre certain de chauffe-eau s’allument à 22H, ainsi que d’autres appareils électroménagers comme les machines. Ce qui donne les courbes de demande électrique suivante:</p>
+<div class="section" id="thermosiphon">
+<h3>Thermosiphon<a class="headerlink" href="#thermosiphon" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="exercices">
 <h3>Exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h3>
@@ -393,16 +478,6 @@ P_{pertes} = a_1 \times (\bar{T}-T_{amb})+a_2 \times (\bar{T}-T_{amb})^2
 <li><p>Exprimer la température de sortie en fonction des autres variables.</p></li>
 <li><p>Avec les paramètres suivants: <span class="math notranslate nohighlight">\(\eta_{opt}=0.8, \ a_1 = 3.01 W/m².K , \ a_2=0.2 W/m².K²\)</span> et en choisissant des valeurs plausibles pour les autres paramètres</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="bilan-sur-le-stockage">
-<h2>Bilan sur le stockage<a class="headerlink" href="#bilan-sur-le-stockage" title="Permalink to this headline">¶</a></h2>
-<p>De manière très simplifiée (en ignorant la stratification par exemple), on peut définir une température moyenne de stockage.</p>
-<p>Dans une maison française post-nucléarisation, le chauffe-eau est souvent électrique. Certains tarifs d’EDF rémunèrent l’utilisation d’Heures Creuses, afin de lisser la demande électrique sur le réseau. Par conséquent, un nombre certain de chauffe-eau s’allument à 22H, ainsi que d’autres appareils électroménagers comme les machines. Ce qui donne les courbes de demande électrique suivante:</p>
-<p>Une équation bilan serait : <span class="math notranslate nohighlight">\(M\times \frac{dh}{dt}= \dot{q}_{in}-\dot{q}_{out}-\dot{q}_{pertes}\)</span>, avec <em>h</em> l’enthalpie du fluide dans le stockage, M la masse du stockage, <span class="math notranslate nohighlight">\(\dot{q}_{in}=\dot{m} \times C_p \times (T_{out,panneau}-T_{stockage})\)</span> ,  <span class="math notranslate nohighlight">\(\dot{q}_{out}=\dot{m}_{demande} \times C_p \times (T_{stockage}-T_{reseau})\)</span> et <span class="math notranslate nohighlight">\(\dot{q}_{pertes}= UA \times (T_{stockage}-T_{ambient})\)</span>. <span class="math notranslate nohighlight">\(dh = C_p \times dT\)</span></p>
-<p>On obtient donc une équation différentielle en z. Il va donc falloir la résoudre. Cela est fait de manière très classique en discrétisant le temps, par exemple au niveau horaire, ce que l’on fait en prenant <span class="math notranslate nohighlight">\(\delta t = 3600s\)</span> et en remplaçant <span class="math notranslate nohighlight">\(\frac{dT(t)}{dt} = \frac{T_{n+1}-T_n}{\delta t}\)</span>. <span class="math notranslate nohighlight">\(T_n\)</span> correspond à la température à l’heure n. On obtient alors la température à l’heure n+1 via l’équation bilan. De proche en proche, cela permet de résoudre la température dans le panneau.</p>
-<div class="section" id="exercice">
-<h3>Exercice<a class="headerlink" href="#exercice" title="Permalink to this headline">¶</a></h3>
 <p>Calculer la température du stockage au cours d’une journée avec l’irradiance définie comme ci-dessous pour le panneau de l’exercice précédent, en utilisant les valeurs de <span class="math notranslate nohighlight">\(\dot{m}_{demande}\)</span> présentes dans les photos du livre ainsi que celle de <span class="math notranslate nohighlight">\(T_{reseau}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -422,7 +497,7 @@ P_{pertes} = a_1 \times (\bar{T}-T_{amb})+a_2 \times (\bar{T}-T_{amb})^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/LowT_28_0.png" src="../_images/LowT_28_0.png" />
+<img alt="../_images/LowT_40_0.png" src="../_images/LowT_40_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -439,7 +514,7 @@ P_{pertes} = a_1 \times (\bar{T}-T_{amb})+a_2 \times (\bar{T}-T_{amb})^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/LowT_30_0.png" src="../_images/LowT_30_0.png" />
+<img alt="../_images/LowT_42_0.png" src="../_images/LowT_42_0.png" />
 </div>
 </div>
 <div class="cell docutils container">

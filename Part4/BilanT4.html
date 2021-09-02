@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Température de paroi dans une tour &#8212; Un livre pour faire des livres</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/four.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Un livre pour faire des livres</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Tutoriel pour faire un livre interactif
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Faire un livre avec Jupyter
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1/NoteBookTuto.html">
+   Tutoriel Python &amp; Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1/BookTuto.html">
+   Faire un livre avec Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tracer des courbes via Plotly et Cufflinks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2/Explications.html">
+   Explications
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2/ExempleDay.html">
+   Exemples de plot possible avec cufflinks et pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction à l'Energie solaire
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/IntroEnergie.html">
+   Notions utiles de l’Energie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/EmplacementSoleil.html">
+   Décrire l’emplacement du soleil
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/Irradiation.html">
+   L’irradiation solaire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/LowT.html">
+   Basses Températures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3/HighT.html">
+   La Concentration Ponctuelle
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Low-tech/Maison
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PV&amp;ChargeBasique.html">
+   Faire un système Photovoltaïque Maison
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SolaireActif.html">
+   Solaire thermique actif
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SolarPunk.html">
+   SolarPunk
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part4/BilanT4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sKamer73/Outils"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sKamer73/Outils/issues/new?title=Issue%20on%20page%20%2FPart4/BilanT4.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/sKamer73/Outils/edit/main/Part4/BilanT4.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sKamer73/Outils/f4011d808a7377783eebea343c630a93dec2205f/v2/gh/sKamer73/Outils/main?urlpath=tree/Part4/BilanT4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sur-une-formule-generale">
+   Sur une formule générale
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-un-instant-t-donne">
+     A un instant t donné
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="temperature-de-paroi-dans-une-tour">
+<h1>Température de paroi dans une tour<a class="headerlink" href="#temperature-de-paroi-dans-une-tour" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sur-une-formule-generale">
+<h2>Sur une formule générale<a class="headerlink" href="#sur-une-formule-generale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-un-instant-t-donne">
+<h3>A un instant t donné<a class="headerlink" href="#a-un-instant-t-donne" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight" id="equation-eqgentfixed">
+<span class="eqno">()<a class="headerlink" href="#equation-eqgentfixed" title="Permalink to this equation">¶</a></span>\[
+\dot{m} \times C_p \times \frac{dT}{dz} = \alpha \times \eta_{opt} \times DNI \times \frac{A_{col}}{L_{rec}} - h \times l_{rec} \times (T_p-T_{amb}) - \epsilon (T_p) \times \sigma \times l_{rec} \times (T_p^4-T_{amb}^4)
+\]</div>
+<p>La relation entre la température du fluide en z et la température de paroi externe peut être résolue en faisant un bilan sur un élément de la paroi du récepteur:
+$<span class="math notranslate nohighlight">\(
+\dot{q}_{SF} (z) = R_{eq}  \times (T_p -T_{fl}(z)) + h_a  \times (T_p-T_{amb} ) + \epsilon \times \sigma  \times (T_p^4-T_{amb}^4) 
+\)</span>$</p>
+<p>Avec <span class="math notranslate nohighlight">\(\frac{1}{Req} = \frac{e}{\lambda}+\frac{1}{h_{fl}}\)</span></p>
+<p>Ce qui peut s’écrire comme une équation de degré 4 sur <span class="math notranslate nohighlight">\(T_p\)</span>:
+$<span class="math notranslate nohighlight">\(
+T_p^4+ q \times T_p - r =0 \\
+ q= \frac{R_{eq} + h}{\epsilon \times \sigma} \\
+ r = T_{amb}^4 + \frac{\dot{q}_{SF} (z) + R_{eq} \times T + h \times T_{amb} }{\epsilon \times \sigma}
+\)</span>$</p>
+<p>Cette équation peut se résoudre de manière littérale en utilisant le fait que les coefficients des carrés et cubes sont nuls. Résultante cubique:
+$<span class="math notranslate nohighlight">\(
+R(z) = z^3 +4 \times r \times z - q^2 \\
+\Delta_1 = q^4+ \frac{4}{27} \times (4r)^3
+\)</span>$</p>
+<p>Or
+$<span class="math notranslate nohighlight">\(
+z_1 = \sqrt[3]{\frac{q^2-\sqrt{\Delta_1}}{2}} + \sqrt[3]{\frac{q^2+\sqrt{\Delta_1}}{2}} \\
+z_2 = j \times \sqrt[3]{\frac{q^2-\sqrt{\Delta_1}}{2}} + \bar{j} \times \sqrt[3]{\frac{q^2+\sqrt{\Delta_1}}{2}}\\
+z_3 = j^2 \times \sqrt[3]{\frac{q^2-\sqrt{\Delta_1}}{2}} + \bar{j}^2 \times \sqrt[3]{\frac{q^2+\sqrt{\Delta_1}}{2}}\\
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.67</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">Tamb</span><span class="o">=</span><span class="mi">20</span><span class="o">+</span><span class="mf">273.15</span>
+<span class="n">Tsky</span><span class="o">=</span><span class="mf">273.15</span>
+<span class="n">qdotSF</span><span class="o">=</span><span class="mf">0.9</span><span class="o">*</span><span class="mf">0.75</span><span class="o">*</span><span class="mi">1000</span><span class="o">*</span><span class="mi">800</span> <span class="c1">#alpha*eta_opt*C*DNI</span>
+<span class="n">Req</span><span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="mi">400</span><span class="o">/</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="mi">4000</span><span class="p">)</span>
+<span class="n">Tfluid</span><span class="o">=</span><span class="mi">600</span><span class="o">+</span><span class="mf">273.15</span>
+<span class="n">h</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">q</span><span class="o">=</span><span class="p">(</span><span class="n">Req</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">eps</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span><span class="p">(</span><span class="n">eps</span><span class="o">*</span><span class="n">sigma</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">Tamb</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="n">qdotSF</span><span class="o">+</span><span class="n">Req</span><span class="o">*</span><span class="n">Tfluid</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">Tamb</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">eps</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>
+<span class="n">ratio</span><span class="o">=</span><span class="nb">pow</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="nb">pow</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">nu</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="nb">pow</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">ratio</span>
+<span class="n">delta0</span><span class="o">=-</span><span class="mi">12</span><span class="o">*</span><span class="n">r</span>
+<span class="n">delta1</span><span class="o">=-</span><span class="mi">27</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">nu2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">delta0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="nb">pow</span><span class="p">(</span><span class="n">delta1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">=</span><span class="nb">pow</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">nu</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="o">-</span><span class="n">delta1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-15919223.393448392
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cmath</span>
+<span class="n">j</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">x0</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="o">+</span><span class="n">delta0</span><span class="o">/</span><span class="n">C</span><span class="p">)</span>
+<span class="n">x1</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="n">delta0</span><span class="o">/</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
+<span class="n">x2</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">delta0</span><span class="o">/</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sq0</span><span class="o">=</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="n">sq1</span><span class="o">=</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">sq2</span><span class="o">=</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tp</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">sq0</span><span class="o">+</span><span class="n">sq1</span><span class="o">+</span><span class="n">sq2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">sq0</span><span class="o">-</span><span class="n">sq1</span><span class="o">-</span><span class="n">sq2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1517.2264175955538+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">nu</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">nu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7977724087046312
+</pre></div>
+</div>
+</div>
+</div>
+<p>D’où :
+$<span class="math notranslate nohighlight">\(
+C = \sqrt[3]{\Delta_1} \times \nu^{1/6}
+\)</span>$</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Simon Kamerling<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

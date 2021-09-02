@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cours &#8212; Cours de Math 3</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Travaux Dirigés" href="TD.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/IUT_Chambery.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Cours de Math 3</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Géométrie dans l'espace
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Cours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="TD.html">
+   Travaux Dirigés
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part1/Cours.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sKamer73/MAT3"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sKamer73/MAT3/issues/new?title=Issue%20on%20page%20%2FPart1/Cours.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/sKamer73/MAT3/edit/main/Part1/Cours.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sKamer73/Outils/f4011d808a7377783eebea343c630a93dec2205f/v2/gh/sKamer73/MAT3/main?urlpath=tree/Part1/Cours.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Définition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vecteurs-rappels">
+   Vecteurs, rappels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operation-sur-les-vecteurs-dans-l-espace">
+   Opération sur les vecteurs dans l’espace
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produit-scalaire">
+     Produit scalaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#orthogonalite-de-deux-vecteurs">
+     Orthogonalité de deux vecteurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operation-sur-les-vecteurs">
+     Opération sur les vecteurs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produit-vectoriel">
+     Produit vectoriel
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#triedre-direct">
+       Trièdre direct
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Produit vectoriel
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-cartesienne-d-un-plan-dans-l-espace">
+   Equation cartésienne d’un plan dans l’espace
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determination-de-l-equation-cartesienne">
+     Détermination de l’équation cartésienne.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distance-d-un-point-a-un-plan">
+     Distance d’un point à un plan
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-d-une-droite-dans-l-espace">
+   Equation d’une droite dans l’espace
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cours">
+<h1>Cours<a class="headerlink" href="#cours" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Dans ce premier chapitre, nous allons aborder la géométrie dans l’espace. Une introduction aux outils mathématiques utilisés pour décrire les forces, vitesses et positions des différents objets nous environnant est donnée.</p>
+<p>Une vidéo de M. Ouin présentant une version similaire de ce cours est disponible à l’adresse suivante: <a class="reference external" href="https://www.youtube.com/watch?v=9LGTMhIp7ig">https://www.youtube.com/watch?v=9LGTMhIp7ig</a> .</p>
+<div class="section" id="definition">
+<h3>Définition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<p>Dans l’ensemble de ce chapitre on définit un repère orthonormé <span class="math notranslate nohighlight">\(\mathcal{E} = (O,\vec{i},\vec{j},\vec{k})\)</span> dans l’espace .</p>
+</div>
+</div>
+<div class="section" id="vecteurs-rappels">
+<h2>Vecteurs, rappels<a class="headerlink" href="#vecteurs-rappels" title="Permalink to this headline">¶</a></h2>
+<p><strong>Définition.</strong> Un vecteur est un objet mathématique, généralement noté à l’aide d’une flèche, caractérisé par sa direction, son sens ainsi que sa norme.</p>
+<p>Par exemple si <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> sont deux points de l’espace, de coordonnées respectives <span class="math notranslate nohighlight">\(\begin{pmatrix} x_A \\ y_A \\ z_A \end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\(\begin{pmatrix} x_B \\ y_B \\ z_B \end{pmatrix}\)</span>, le vecteur <span class="math notranslate nohighlight">\(\vec{AB}\)</span> a pour coordonnées <span class="math notranslate nohighlight">\(\begin{pmatrix}x_A-y_A \\ x_B-y_B \\ z_B-z_A \end{pmatrix}\)</span>, il a pour direction la droite <span class="math notranslate nohighlight">\((AB)\)</span>, pour sens <span class="math notranslate nohighlight">\(A\)</span> vers <span class="math notranslate nohighlight">\(B\)</span> et pour norme :</p>
+<div class="math notranslate nohighlight">
+\[
+||\vec{AB}|| = \sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}
+\]</div>
+<p>La norme du vecteur <span class="math notranslate nohighlight">\(\vec{AB}\)</span> est égale à la distance de <span class="math notranslate nohighlight">\(A\)</span> à <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>Un vecteur peut être défini sans la donnée a priori de deux points : on peut par exemple se donner le vecteur <span class="math notranslate nohighlight">\(\vec{u}\)</span> ayant pour coordonnées <span class="math notranslate nohighlight">\((x_u,y_u,z_u)\)</span>. Pour faire l’analogie avec la précédente définition, on comprendra le vecteur <span class="math notranslate nohighlight">\(\vec{u}\)</span> comme le vecteur <span class="math notranslate nohighlight">\(\vec{O U}\)</span> ou <span class="math notranslate nohighlight">\(U\)</span> est le point de coordonnées <span class="math notranslate nohighlight">\((x_u;y_u;z_u)\)</span>. Dans ce cas :</p>
+<div class="math notranslate nohighlight">
+\[
+||\vec{u}|| = \sqrt{x_u^2+y_u^2 + z_u^2}
+\]</div>
+<p><strong>Exemple.</strong> En mécanique, les vitesses et les forces sont toutes représentées par des vecteurs. Ces derniers contiennent l’information sur la direction et l’ampleur des phénomènes. Les vecteurs sont donc des outils très pratiques dans ce domaine. Il est fréquent d’écrire un vecteur sous la forme: norme <span class="math notranslate nohighlight">\(\cdot\)</span> vecteur direction, par exemple: soit <span class="math notranslate nohighlight">\(\vec{F}\)</span> une force, il peut être utile d’écrire <span class="math notranslate nohighlight">\(\vec{F} = F \vec{u}\)</span> avec <span class="math notranslate nohighlight">\(F\)</span> la norme du vecteur <span class="math notranslate nohighlight">\(\vec{F}\)</span> (<span class="math notranslate nohighlight">\(F=||\vec{F}||\)</span>) et <span class="math notranslate nohighlight">\(\vec{u}\)</span> le vecteur unitaire indiquant la direction de la force (<span class="math notranslate nohighlight">\(\vec{u} = \frac{\vec{F}}{F}\)</span>).</p>
+</div>
+<div class="section" id="operation-sur-les-vecteurs-dans-l-espace">
+<h2>Opération sur les vecteurs dans l’espace<a class="headerlink" href="#operation-sur-les-vecteurs-dans-l-espace" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="produit-scalaire">
+<h3>Produit scalaire<a class="headerlink" href="#produit-scalaire" title="Permalink to this headline">¶</a></h3>
+<p>Soient <span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span> deux vecteurs de coordonnées <span class="math notranslate nohighlight">\(\begin{pmatrix} x_u \\ y_u \\ z_u \end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\(\begin{pmatrix} x_v \\ y_v \\ z_v \end{pmatrix}\)</span>.</p>
+<p>On appelle produit scalaire de deux vecteurs et on note par <span class="math notranslate nohighlight">\(\cdot\)</span> la quantité (réelle, ce n’est pas un vecteur !) :
+<span class="math notranslate nohighlight">\(\vec{u} \cdot \vec{v} = x_u x_v + y_u y_v + z_u z_v.\)</span>
+On remarquera en particulier que :</p>
+<div class="math notranslate nohighlight">
+\[||\vec{u}||^2 = x_u^2 + y_u^2 + z_u^2 = \vec{u}\cdot\vec{u}.\]</div>
+<p>Il existe aussi une expression géométrique du produit scalaire de deux vecteurs :</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{u} \cdot \vec{v} = ||\vec{u}|| \times ||\vec{v}|| \times \cos(\vec{u},\vec{v}),
+\]</div>
+<p>où <span class="math notranslate nohighlight">\((\vec{u},\vec{v})\)</span> est l’angle orienté formé par les vecteurs <span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span>.\</p>
+<p><strong>Exemple.</strong> Un cycliste prenant le vent de face, de côté ou de l’arrière ne ressentira pas du tout les mêmes frottements dûs à l’air. En fait, la composante du vent influant sur la puissance qu’il doit développer est celle projetée dans la direction de son déplacement. Mathématiquement, soit <span class="math notranslate nohighlight">\(\vec{v}\)</span> la vitesse du vent dans le référentiel du cycliste et <span class="math notranslate nohighlight">\(\vec{u}\)</span> le vecteur unitaire indiquant la direction de déplacement du cycliste. Alors, la composante influente dans son déplacement sera <span class="math notranslate nohighlight">\(\vec{v} \cdot \vec{u}\)</span>. La même chose s’applique en voiture et donc pour expliquer la consommation d’essence.</p>
+</div>
+<div class="section" id="orthogonalite-de-deux-vecteurs">
+<h3>Orthogonalité de deux vecteurs<a class="headerlink" href="#orthogonalite-de-deux-vecteurs" title="Permalink to this headline">¶</a></h3>
+<p>On déduit aisément de l’expression géométrique du produit scalaire que si <span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span> sont deux vecteurs orthogonaux alors leur produit scalaire est nul. On a en fait le résultat plus général suivant :</p>
+<p><strong>Proposition 1.</strong> On dit que deux vecteurs sont orthogonaux si et seulement si leur produit scalaire est nul, autrement dit :
+<span class="math notranslate nohighlight">\(\vec{u} \perp \vec{v} \Leftrightarrow \vec{u} \cdot \vec{v} =0.\)</span></p>
+<p><strong>Exemple.</strong> Un vent de côté n’influencera pas la demande en puissance du cycliste.</p>
+</div>
+<div class="section" id="operation-sur-les-vecteurs">
+<h3>Opération sur les vecteurs<a class="headerlink" href="#operation-sur-les-vecteurs" title="Permalink to this headline">¶</a></h3>
+<p>Soient <span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span> deux vecteurs de coordonnées <span class="math notranslate nohighlight">\(\begin{pmatrix} x_u \\ y_u \\ z_u \end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\(\begin{pmatrix} x_v \\ y_v \\ z_v \end{pmatrix}\)</span>, alors :</p>
+<ul class="simple">
+<li><p>pour tout <span class="math notranslate nohighlight">\(\lambda \in \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(\lambda\vec{u}\)</span> est le vecteur de coordonnées <span class="math notranslate nohighlight">\(\begin{pmatrix} \lambda x_u \\ \lambda y_u \\ \lambda z_u\end{pmatrix}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{u}+\vec{v}\)</span> est le vecteur de coordonnées <span class="math notranslate nohighlight">\(\begin{pmatrix} x_u+x_v\\y_u+y_v\\z_u+z_v \end{pmatrix}\)</span>.</p></li>
+</ul>
+<p><strong>Exemple.</strong> La vitesse du cycliste influe sur son ressenti de la vitesse du vent. Soit <span class="math notranslate nohighlight">\(\vec{v}_{vent}\)</span> la vitesse du vent lorsque le cycliste est à l’arrêt, et soit <span class="math notranslate nohighlight">\(\vec{v}_{cycliste}\)</span> la vitesse du cycliste. La vitesse du vent telle que ressentie par le cycliste sera alors <span class="math notranslate nohighlight">\(\vec{v}_{vent}-\vec{v}_{cycliste}\)</span>.</p>
+<p><strong>Question bonus</strong>: Si un vent provenant de la direction sud-ouest et d’intensité 30 km/h souffle sur le cycliste qui circule vers le nord, quelle vitesse devra-t-il avoir pour que le vent ne lui apporte plus d’aide?</p>
+</div>
+<div class="section" id="produit-vectoriel">
+<h3>Produit vectoriel<a class="headerlink" href="#produit-vectoriel" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="triedre-direct">
+<h4>Trièdre direct<a class="headerlink" href="#triedre-direct" title="Permalink to this headline">¶</a></h4>
+<p>Soit <span class="math notranslate nohighlight">\(\vec{u},\vec{v},\vec{w}\)</span>  trois vecteurs de l’espace <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>. On dit que <span class="math notranslate nohighlight">\((\vec{u},\vec{v},\vec{w})\)</span> est un triède direct si :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{u},\vec{v},\vec{w}\)</span> ne sont pas coplanaires</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{u},\vec{v},\vec{w}\)</span> vérifient la règle des trois doigts (pouce, index, majeur).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Produit vectoriel<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>On peut enfin définir dans l’espace, et uniquement dans l’espace, le produit vectoriel.</p>
+<p><strong>Définition.</strong></p>
+<p>Soient <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span> deux vecteurs de l’espace. On appelle produit vectoriel de <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span> et on note <span class="math notranslate nohighlight">\(\vec{u}_1 \wedge \vec{u}_2\)</span> le vecteur:</p>
+<ul class="simple">
+<li><p>orthogonal à <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span></p></li>
+<li><p>de direction telle que le trièdre (<span class="math notranslate nohighlight">\(\vec{u}_1,\vec{u}_2,\vec{u}_1 \wedge \vec{u}_2\)</span>) soit direct</p></li>
+<li><p>de norme <span class="math notranslate nohighlight">\(||\vec{u}_1 \wedge \vec{u}_2|| = ||\vec{u}_1 || \times || \vec{u}_2|| \times |\sin(\vec{u}_1,\vec{u}_2)|\)</span> où <span class="math notranslate nohighlight">\((\vec{u}_1,\vec{u}_2)\)</span> est l’angle orienté formé par les vecteurs <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span>,</p></li>
+</ul>
+<p>lorsque  <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span> ne sont pas colinéaires et le vecteur nul <span class="math notranslate nohighlight">\(\vec{0_E}\)</span> sinon.</p>
+<p><strong>Remarque.</strong> La direction est donc donnée par l’orthogonal aux vecteurs <span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span>, le sens se déduit du trièdre direct.</p>
+<p>D’un point de vue “pratique”, on calcule les coordonnées du vecteur produit de la manière suivante. Soient <span class="math notranslate nohighlight">\(\vec{u}_1\)</span> et <span class="math notranslate nohighlight">\(\vec{u}_2\)</span> deux vecteurs de <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> de coordonnées respectives <span class="math notranslate nohighlight">\(\begin{pmatrix}x_1 \\ y_1 \\ z_1\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\(\begin{pmatrix}x_2 \\ y_2 \\ z_2\end{pmatrix}\)</span> dans cette base. Le vecteur <span class="math notranslate nohighlight">\(\vec{u}_1 \wedge \vec{u}_2\)</span> aura pour coordonnées :</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{pmatrix}
+y_1z_2 - z_1y_2\cr
+z_1x_2 - z_2 x_1 \cr
+x_1y_2 - x_2y_1\cr
+\end{pmatrix}
+\]</div>
+<p>Finalement, on a les propriétés suivantes concernant le produit vectoriel:</p>
+<p><strong>Propriété.</strong>
+Soient <span class="math notranslate nohighlight">\(\vec{u},\vec{v}\)</span>  deux vecteurs de l’espace <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>, alors :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\vec{u} \wedge \vec{v}\)</span> est orthogonal à <span class="math notranslate nohighlight">\(\vec{u}\)</span> et à <span class="math notranslate nohighlight">\(\vec{v}\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{u}\)</span> et <span class="math notranslate nohighlight">\(\vec{v}\)</span> sont colinéaires ssi <span class="math notranslate nohighlight">\(\vec{u} \wedge \vec{v} =\vec{0}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{u} \wedge \vec{v} =-\vec{v} \wedge \vec{u}\)</span>.</p></li>
+</ul>
+<p><strong>Exemple.</strong> En mécanique, le moment appliqué par une force se définit au moyen du produit vectoriel: soit O l’axe de référence, P le point d’application d’une force <span class="math notranslate nohighlight">\(\vec{F}\)</span>, le moment appliqué par cette force s’écrit <span class="math notranslate nohighlight">\(M_O = \vec{OP} \wedge \vec{F}\)</span>. On peut alors retrouver la notion de bras de levier: Si <span class="math notranslate nohighlight">\(\vec{OP}\)</span> et <span class="math notranslate nohighlight">\(\vec{F}\)</span> sont perpendiculaires (comme dans le cas d’un poids au bout d’une grue), on a alors <span class="math notranslate nohighlight">\(||M_O|| = OP \times F\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="equation-cartesienne-d-un-plan-dans-l-espace">
+<h2>Equation cartésienne d’un plan dans l’espace<a class="headerlink" href="#equation-cartesienne-d-un-plan-dans-l-espace" title="Permalink to this headline">¶</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> et <span class="math notranslate nohighlight">\(C\)</span> trois points non alignés de l’espace, on appelle plan de l’espace <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> et on note <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> le plan <span class="math notranslate nohighlight">\((ABC)\)</span>. Pour rappel,  <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> est l’ensemble des points <span class="math notranslate nohighlight">\(M\)</span> de <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> tels que <span class="math notranslate nohighlight">\(\vec{AM} = \lambda_1 \vec{AB} + \lambda_2 \vec{AC}\)</span> quand <span class="math notranslate nohighlight">\(\lambda_1\)</span> et <span class="math notranslate nohighlight">\(\lambda_2\)</span> parcourent <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> :
+$<span class="math notranslate nohighlight">\(
+\mathcal{P} = \{M \in \mathcal{E},\quad \vec{AM} = \lambda_1 \vec{AB}+\lambda_2 \vec{AC},\ \lambda_1, \lambda_2 \in \mathbb{R}\}
+\)</span>$</p>
+<p>On dira que <span class="math notranslate nohighlight">\(\vec{AB}\)</span> et <span class="math notranslate nohighlight">\(\vec{AC}\)</span> sont deux vecteurs directeurs de <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p>
+<div class="section" id="determination-de-l-equation-cartesienne">
+<h3>Détermination de l’équation cartésienne.<a class="headerlink" href="#determination-de-l-equation-cartesienne" title="Permalink to this headline">¶</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\(\vec{n}=\begin{pmatrix}a \\ b \\ c \end{pmatrix}\)</span> un vecteur normal au plan <span class="math notranslate nohighlight">\((ABC) = : \mathcal{P}\)</span>. Alors, pour tout point <span class="math notranslate nohighlight">\(M\)</span> de coordonnées <span class="math notranslate nohighlight">\((x,y,z)\)</span> du plan :
+<span class="math notranslate nohighlight">\(\vec{AM} \cdot \vec{n} = 0.\)</span>
+<em>i.e.</em>
+<span class="math notranslate nohighlight">\(
+(x-x_A)a + b(y-y_A) + c(z-z_A) = 0 \Leftrightarrow ax + by + cz - (x_A.a+y_A.b+z_A.c) = 0.
+\)</span>
+On en déduit :</p>
+<p><strong>Proposition 3.</strong>
+L’ensemble des points de <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> de coordonnées <span class="math notranslate nohighlight">\((x,y,z)\)</span> telles que :
+<span class="math notranslate nohighlight">\(ax+by + cz + d = 0,\)</span>
+où au moins un des réels <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> et <span class="math notranslate nohighlight">\(c\)</span> est différent de 0, forme un plan affine <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> admettant <span class="math notranslate nohighlight">\(\vec{n}=\begin{pmatrix}a \\ b \\ c \end{pmatrix}\)</span> comme vecteur normal. On parle d’équation cartésienne du plan <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> dans l’espace.</p>
+<p><strong>Exemple.</strong> D’après sa définition, le vecteur <span class="math notranslate nohighlight">\(\vec{AB} \wedge \vec{AC}\)</span> est normal au plan <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>.</p>
+</div>
+<div class="section" id="distance-d-un-point-a-un-plan">
+<h3>Distance d’un point à un plan<a class="headerlink" href="#distance-d-un-point-a-un-plan" title="Permalink to this headline">¶</a></h3>
+<p>Soit <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> un plan d’équation cartésienne <span class="math notranslate nohighlight">\(ax + by + cz +d =0\)</span> et soit <span class="math notranslate nohighlight">\(M\)</span> un point quelconque de l’espace de coordonnées <span class="math notranslate nohighlight">\((x_M,y_M,z_M)\)</span>. La distance du point <span class="math notranslate nohighlight">\(M\)</span> au plan, notée <span class="math notranslate nohighlight">\(d(M,\mathcal{P})\)</span> est donnée par :
+<span class="math notranslate nohighlight">\(d(M,\mathcal{P}) = \frac{|ax_M+ by_M + cz_M + d|}{\sqrt{a^2+b^2+c^2}}.\)</span>
+C’est la plus petite distance du point <span class="math notranslate nohighlight">\(M\)</span> à n’importe quel point du plan <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>. Le point du plan <span class="math notranslate nohighlight">\(\mathcal{P}\)</span> qui réalise cette distance est appelé \textbf{projeté orthogonal de <span class="math notranslate nohighlight">\(M\)</span> sur <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>}.</p>
+<p><strong>Question bonus:</strong> Le démontrer !</p>
+</div>
+</div>
+<div class="section" id="equation-d-une-droite-dans-l-espace">
+<h2>Equation d’une droite dans l’espace<a class="headerlink" href="#equation-d-une-droite-dans-l-espace" title="Permalink to this headline">¶</a></h2>
+<p>Soient <span class="math notranslate nohighlight">\(A(x_A;y_A;z_A)\)</span>, <span class="math notranslate nohighlight">\(B(x_B;y_B;z_A)\)</span> deux points de l’espace. La droite <span class="math notranslate nohighlight">\((AB)\)</span> est l’ensemble des points <span class="math notranslate nohighlight">\(M\)</span> de <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>  tels que <span class="math notranslate nohighlight">\(\vec{AM} = \lambda .\vec{AB} \)</span> quand <span class="math notranslate nohighlight">\(\lambda\)</span> parcourt <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> :
+<span class="math notranslate nohighlight">\((AB) = \{M \in \mathcal{E},\quad \vec{AM} = \lambda. \vec{AB},\ \lambda \in \mathbb{R}\}.\)</span>
+On dira que <span class="math notranslate nohighlight">\(\vec{AB}\)</span> est un vecteur directeur de <span class="math notranslate nohighlight">\((AB)\)</span>.</p>
+<p>De cette définition, on obtient un système d’équations paramétriques de la droite <span class="math notranslate nohighlight">\((AB)\)</span>:
+$<span class="math notranslate nohighlight">\(
+\left\lbrace\begin{array}{lll}
+(x-x_A) = \lambda (x_B-x_A)\\
+(y-y_A) = \lambda (y_B-y_A),\quad \lambda \in \mathbb{R}\\
+(z-z_A) = \lambda (z_B-z_A)
+\end{array}\right. \Leftrightarrow \left\lbrace\begin{array}{lll}
+x = \lambda (x_B-x_A) + x_A\\
+y = \lambda (y_B-y_A)+ y_A ,\quad \lambda \in \mathbb{R}\\
+z = \lambda (z_B-z_A)+ z_A
+\end{array}\right. 
+\)</span>$</p>
+<p>Par ailleurs, les vecteurs <span class="math notranslate nohighlight">\(\vec{AB}\)</span> et <span class="math notranslate nohighlight">\(\vec{AM}\)</span> sont colinéaires, en particulier :</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{AB} \wedge \vec{AM} = \vec{0}
+\]</div>
+<p>L’ensemble des points <span class="math notranslate nohighlight">\(M\)</span> de coordonnées <span class="math notranslate nohighlight">\((x,y,z)\)</span> appartenant à <span class="math notranslate nohighlight">\((AB)\)</span> est donc caractérisé par un système d’équations.\</p>
+<p>En effet, étant donné un point <span class="math notranslate nohighlight">\(M\)</span> de la droite <span class="math notranslate nohighlight">\((AB)\)</span> et en notant les coordonnées de <span class="math notranslate nohighlight">\(\vec{AB} = \begin{pmatrix}\alpha\cr \beta \cr \gamma \end{pmatrix}\)</span> on retrouve le système:
+<span class="math notranslate nohighlight">\(
+\gamma(y-y_A) - \beta(z-z_A) = 0 \label{eq:1} \tag{1} 
+\)</span>
+<span class="math notranslate nohighlight">\(
+\alpha(z-z_A)-\gamma(x-x_A)=0 \label{eq:2} \tag{2}
+\)</span>
+<span class="math notranslate nohighlight">\(
+\beta(x-x_A) - \alpha (y-y_A)=0 \label{eq:3} \tag{3}.
+\)</span>
+On remarque que <span class="math notranslate nohighlight">\(\alpha \times \eqref{eq:1} + \beta \times \eqref{eq:2}  =-\gamma \eqref{eq:3}\)</span> et qu’en conséquence l’équation <span class="math notranslate nohighlight">\(\eqref{eq:3}\)</span> est superflue. La droite <span class="math notranslate nohighlight">\((AB)\)</span> est donc caractérisée par le système d’équations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\gamma(y-y_A) - \beta(z-z_A) = 0\\
+\alpha(z-z_A)-\gamma(x-x_A)=0.
+\end{split}\]</div>
+<p>On l’appelle système d’équation caractéristique de <span class="math notranslate nohighlight">\((AB)\)</span>.</p>
+<p><strong>Remarque.</strong> Il s’agit en fait des équations de deux plan de l’espace <span class="math notranslate nohighlight">\(\mathcal{E}\)</span>. Dans l’espace, une droite est ainsi caractérisée comme l’intersection de deux plans.</p>
+<p><strong>Question bonus:</strong> Le démontrer !</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="TD.html" title="next page">Travaux Dirigés</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Simon Kamerling<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
